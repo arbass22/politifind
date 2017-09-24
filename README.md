@@ -1,0 +1,5 @@
+# PolitiFind
+
+## Getting Started
+
+## Contributing
