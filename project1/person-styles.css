@@ -1,0 +1,77 @@
+.picture-frame {
+    height: 150px;
+    width: 150px;
+    border: solid 2px #081491;
+    padding: 4px;
+    margin: 12px;
+}
+
+.picture-frame img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.politican-profile {
+    width: 100%;
+    display: inline-block;
+}
+
+.politician-profile .name {
+    margin-top: 36px;
+    font-size: 32px;
+}
+
+.politician-profile .title {
+    font-size: 24px;
+    margin-bottom: 22px;
+}
+
+.content {
+    margin-top: 14px;
+    background-color: #e8e8e8;
+    height: 100%;
+}
+
+.person-nav a {
+    color: black;
+    padding-bottom: 6px;
+    margin-right: 16px;
+    font-size: 16px;
+}
+
+.person-nav a.active {
+    color: black;
+    border-bottom: 2px solid #081491;
+}
+
+.person-nav a:hover {
+    border-bottom: 2px solid darkgrey;
+    color: black;
+}
+
+.person-nav a:hover {
+    text-decoration: none;
+}
+
+.recent-votes {
+    margin: 24px 0px 24px 24px;
+    font-size: 24px;
+    margin-left: 24px;
+}
+
+.vote {
+    padding: 12px 12px 12px 12px;
+    font-size: 18px;
+    padding-bottom: 12px;
+}
+
+.vote.row {
+    margin-left: 30px;
+    margin-right: 30px;
+    border-bottom: 1px solid darkgrey;
+}
+
+.votes .search {
+    margin-top: 24px;
+}
