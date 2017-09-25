@@ -1,0 +1,94 @@
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>PolitiFind</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="navbar-styles.css">
+    <link rel="stylesheet" href="person-styles.css">
+</head>
+<body>
+    <nav id="main-nav" class="navbar bg-primary">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="pull-right">
+                        <a id="main-logo" class="navbar-brand">politi-find</a>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <form class="navbar-form">
+                        <input id="omnisearch" class="form-control" placeholder="Search people, bills, committees..." type="search"></input>
+                    </form>
+                </div>
+                <div class="col-md-3 text-right btn-login">
+                    <button type="button" class="btn navbar-btn btn-link" >Login</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="row politician-profile">
+            <div class="col-md-6 col-md-offset-3">
+                <div class="media">
+                    <div class="media-left">
+                        <div class="picture-frame">
+                            <img src="https://goo.gl/ZSzSK1"/>
+                        </div>
+                    </div>
+                    <div class="media-right">
+                        <div class="name">Bernie Sanders (I)</div>
+                        <div class="title">Senator from Vermont</div>
+                        <div class="person-nav">
+                            <a href="person-home.html">Home</a>
+                            <a href="person-votes.html" class="active">Votes</a>
+                            <a href="person-bills.html">Bills</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="content votes">
+        <div class="row">
+            <div class="col-md-3 recent-votes">Recent Votes</div>
+            <div class="col-md-3 col-md-offset-5 search text-right">
+                <input type="text" class="form-control" placeholder="Search bills"></input>
+            </div>
+        </div>
+        <div class="row vote">
+            <div class="col-md-2">S. 1866</div>
+            <div class="col-md-8">Hurricanes Harvey, Irma, and Maria Education Relief Act of 2017</div>
+            <div class="col-md-1">Passed</div>
+            <div class="col-md-1">Yay</div>
+        </div>
+        <div class="row vote">
+            <div class="col-md-2">H.R. 2792</div>
+            <div class="col-md-8">Control Unlawful Fugitive Felons Act of 2017</div>
+            <div class="col-md-1">Passed</div>
+            <div class="col-md-1">Yay</div>
+        </div>
+        <div class="row vote">
+            <div class="col-md-2">H.R. 3823</div>
+            <div class="col-md-8">Disaster Tax Relief and Airport and Airway Extension Act of 2017</div>
+            <div class="col-md-1">Passed</div>
+            <div class="col-md-1">Yay</div>
+        </div>
+        <div class="row vote">
+            <div class="col-md-2">H.R. 538</div>
+            <div class="col-md-8">Providing for consideration of the bill (H.R. 3823) to amend title 49, United States Code, to extend authorizations for the airport improvement program, to amend the Internal Revenue Code of 1986 to extend the funding and expenditure authority</div>
+            <div class="col-md-1">Passed</div>
+            <div class="col-md-1">Yay</div>
+        </div>
+        <div class="row vote">
+            <div class="col-md-2"></div>
+            <div class="col-md-8">On the Nomination PN173: Heath P. Tarbert, of Maryland, to be an Assistant Secretary of the Treasury</div>
+            <div class="col-md-1">Passed</div>
+            <div class="col-md-1">Yay</div>
+        </div>
+    </div>
+
+</body>
+</html>

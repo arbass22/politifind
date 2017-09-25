@@ -1,0 +1,171 @@
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>PolitiFind</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="navbar-styles.css">
+    <link rel="stylesheet" href="person-styles.css">
+</head>
+<body>
+    <nav id="main-nav" class="navbar bg-primary">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="pull-right">
+                        <a id="main-logo" class="navbar-brand">politi-find</a>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <form class="navbar-form">
+                        <input id="omnisearch" class="form-control" placeholder="Search people, bills, committees..." type="search"></input>
+                    </form>
+                </div>
+                <div class="col-md-3 text-right btn-login">
+                    <button type="button" class="btn navbar-btn btn-link" >Login</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="row politician-profile">
+            <div class="col-md-6 col-md-offset-3">
+                <div class="media">
+                    <div class="media-left">
+                        <div class="picture-frame">
+                            <img src="https://goo.gl/ZSzSK1"/>
+                        </div>
+                    </div>
+                    <div class="media-right">
+                        <div class="name">Bernie Sanders (I)</div>
+                        <div class="title">Senator from Vermont</div>
+                        <div class="person-nav">
+                            <a href="person-home.html">Home</a>
+                            <a href="person-votes.html">Votes</a>
+                            <a href="person-bills.html" class="active">Bills</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="content">
+        <div class="row">
+            <div class="col-md-4 col-md-offset-4">
+                <input type="search" class="form-control" placeholder="Search bills..."/>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <div class="card-section-header">
+                    Recently Introduced
+                    <hr>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 col-md-offset-2">
+            <div class="card bill">
+                <span class="bill-id">S.1590</span>
+                <span class="bill-name">Employ Young Americans Now Act</span>
+                <hr>
+                <div>
+                    This is a short summary of the bill and what it does. Users can click on the
+                    card to be taken to a more detailed page about it.
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card bill">
+                <span class="bill-id">S.1590</span>
+                <span class="bill-name">Employ Young Americans Now Act</span>
+                <hr>
+                <div>
+                    This is a short summary of the bill and what it does. Users can click on the
+                    card to be taken to a more detailed page about it.
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 col-md-offset-2">
+            <div class="card bill">
+                <span class="bill-id">S.1590</span>
+                <span class="bill-name">Employ Young Americans Now Act</span>
+                <hr>
+                <div>
+                    This is a short summary of the bill and what it does. Users can click on the
+                    card to be taken to a more detailed page about it.
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card bill">
+                <span class="bill-id">S.1590</span>
+                <span class="bill-name">Employ Young Americans Now Act</span>
+                <hr>
+                <div>
+                    This is a short summary of the bill and what it does. Users can click on the
+                    card to be taken to a more detailed page about it.
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <div class="card-section-header">
+                    Recently Voted On
+                    <hr>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 col-md-offset-2">
+            <div class="card bill">
+                <span class="bill-id">S.1590</span>
+                <span class="bill-name">Employ Young Americans Now Act</span>
+                <img class="vote-icon pull-right" src="http://www.iconsdb.com/icons/preview/green/checkmark-xxl.png"/>
+                <hr>
+                <div>
+                    This is a short summary of the bill and what it does. Users can click on the
+                    card to be taken to a more detailed page about it.
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card bill">
+                <span class="bill-id">S.1590</span>
+                <span class="bill-name">Employ Young Americans Now Act</span>
+                <img class="vote-icon pull-right" src="http://www.iconsdb.com/icons/preview/green/checkmark-xxl.png"/>
+                <hr>
+                <div>
+                    This is a short summary of the bill and what it does. Users can click on the
+                    card to be taken to a more detailed page about it.
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 col-md-offset-2">
+            <div class="card bill">
+                <span class="bill-id">S.1590</span>
+                <span class="bill-name">Employ Young Americans Now Act</span>
+                <img class="vote-icon pull-right" src="https://vignette.wikia.nocookie.net/creation/images/7/7e/Red_x.png/revision/latest?cb=20160323201834"/>
+                <hr>
+                <div>
+                    This is a short summary of the bill and what it does. Users can click on the
+                    card to be taken to a more detailed page about it.
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card bill">
+                <span class="bill-id">S.1590</span>
+                <span class="bill-name">Employ Young Americans Now Act</span>
+                <img class="vote-icon pull-right" src="http://www.iconsdb.com/icons/preview/green/checkmark-xxl.png"/>
+                <hr>
+                <div>
+                    This is a short summary of the bill and what it does. Users can click on the
+                    card to be taken to a more detailed page about it.
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
