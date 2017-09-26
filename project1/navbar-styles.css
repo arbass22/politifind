@@ -1,11 +1,11 @@
-.omni-search {
-	margin-bottom: 0em;
+#omnisearch {
+	width: 100%;
 }
 
 #main-logo {
     font-size: 20px;
     color: white;
-    letter-spacing: .3em;
+    letter-spacing: .1em;
 }
 
 #main-nav .container {
