@@ -1,0 +1,114 @@
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>PolitiFind</title>
+    <link rel="stylesheet" href="navbar-styles.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+</head>
+<body>
+    <nav id="main-nav" class="navbar bg-primary">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="pull-right">
+                        <a id="main-logo" class="navbar-brand">politi-find</a>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <form class="navbar-form">
+                        <input id="omnisearch" class="form-control" placeholder="Search people, bills, committees..." type="search"></input>
+                    </form>
+                </div>
+                <div class="col-md-3 text-right btn-login">
+                    <button type="button" class="btn navbar-btn btn-link" >Login</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="page-header text-center">
+            <h2>Edit Profile</h2>
+        </div>
+        <form>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input class="form-control" type="email" name="email" placeholder="Email" value="mgramigna@umass.edu" />
+            </div>
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input class="form-control" type="text" name="username" placeholder="Username" value="mgramigna" />
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <div class="input-group">
+                    <input class="form-control" type="password" name="password" placeholder="*******************" disabled />
+                    <span class="input-group-btn">
+                        <button class="btn btn-default" type="button" name="button">Change</button>
+                    </span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="exampleInputFile">Profile Picture</label>
+                <input type="file" id="profPicInput">
+                <img src="http://placehold.it/100x100" />
+            </div>
+            <div class="form-group">
+                <label for="party">Policital Party</label>
+                <select class="form-control">
+                    <option>Democrat</option>
+                    <option>Republican</option>
+                    <option>Independent</option>
+                    <option>Green Party</option>
+                    <option>Libertarian</option>
+                    <option>Other</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="subs">Subscriptions</label>
+                <div class="input-group">
+                    <input class="form-control" placeholder="Search people, bills, committees..." type="search"></input>
+                    <span class="input-group-btn">
+                        <button class="btn btn-default" type="button" name="button">Subscribe</button>
+                    </span>
+                </div>
+                <div class="media">
+                    <div class="media-left">
+                      <a href="#">
+                        <img class="media-object" src="http://placehold.it/50x50">
+                      </a>
+                    </div>
+                    <div class="media-body">
+                      <h4 class="media-heading">Elizabeth Warren (D)&nbsp;<button class="btn btn-xs btn-default"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button></h4>
+                      A senator from MA
+                    </div>
+                </div>
+                <div class="media">
+                    <div class="media-left">
+                      <a href="#">
+                        <img class="media-object" src="http://placehold.it/50x50">
+                      </a>
+                    </div>
+                    <div class="media-body">
+                      <h4 class="media-heading">S. 1866: Hurricanes Harvey, Irma, and Maria Education Relief Act of 2017&nbsp;<button class="btn btn-xs btn-default"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button></h4>
+                      A bill to provide the Secretary of Education with waiver authority for the reallocation rules and authority to extend the deadline by which funds have to be reallocated in the campus-based aid programs under the Higher Education Act of 1965 due to Hurricane Harvey, Hurricane Irma, and Hurricane Maria, to provide equitable services to children and teachers in private schools, and for other purposes.
+                    </div>
+                </div>
+                <div class="media">
+                    <div class="media-left">
+                      <a href="#">
+                        <img class="media-object" src="http://placehold.it/50x50">
+                      </a>
+                    </div>
+                    <div class="media-body">
+                      <h4 class="media-heading">Bernie Sanders (D)&nbsp;<button class="btn btn-xs btn-default"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button></h4>
+                      A senator from VT
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
