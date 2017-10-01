@@ -1,10 +1,135 @@
 <html lang="en">
-  <head>
+<head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>PolitiFind</title>
-    <link rel="stylesheet" href="styles.css">
-  </head>
-  <body>
-
-  </body>
+    <link rel="stylesheet" href="navbar-styles.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+</head>
+<body>
+    <nav id="main-nav" class="navbar bg-primary">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="pull-right">
+                        <a id="main-logo" class="navbar-brand">politi-find</a>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <form class="navbar-form">
+                        <input id="omnisearch" class="form-control" placeholder="Search people, bills, committees..." type="search"></input>
+                    </form>
+                </div>
+                <div class="col-md-3 text-right btn-login">
+                    <button type="button" class="btn navbar-btn btn-link" ><span class="glyphicon glyphicon-user"></span>&nbsp;mgramigna</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <div class="panel panel-danger">
+                    <div class="panel-heading">
+                        <h3 class="panel-title"><span class="glyphicon glyphicon-flash"></span>&nbsp;Trending Bills</h3>
+                    </div>
+                    <div class="panel-body list-group">
+                        <a class="list-group-item" href="#">
+                            <h4 class="list-group-item-heading">H.Res. 128</h4>
+                            <p class="list-group-item-text">Supporting respect for human rights and encouraging inclusive governance in Ethiopia</p>
+                        </a>
+                        <a class="list-group-item" href="#">
+                            <h4 class="list-group-item-heading">H.R. 2937</h4>
+                            <p class="list-group-item-text">Community Reclamation Partnerships Act</p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <h3 class="panel-title"><span class="glyphicon glyphicon-ok"></span>&nbsp;Recent Vote</h3>
+                    </div>
+                    <div class="panel-body">
+                        <p>Bernie Sanders voted YAY on bill <a href="#">H.R. 2937: Community Reclamation Partnerships Act</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <h3 class="panel-title"><span class="glyphicon glyphicon-remove"></span>&nbsp;Recent Vote</h3>
+                    </div>
+                    <div class="panel-body">
+                        <p>Elizabeth Warren voted NAY on bill <a href="#">S. 1898: A bill to amend the Internal Revenue Code of 1986 to retroactively repeal the individual mandate for health insurance.</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <h3 class="panel-title"><span class="glyphicon glyphicon-bell"></span>&nbsp;S. 1866 Status Update</h3>
+                    </div>
+                    <div class="panel-body">
+                        <p>Bill <a href="#">S. 1866: Hurricanes Harvey, Irma, and Maria Education Relief Act of 2017 has passed through congress, and it waiting on approval from the President.</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <div class="panel panel-danger">
+                    <div class="panel-heading">
+                        <h3 class="panel-title"><span class="glyphicon glyphicon-flash"></span>&nbsp;Trending People</h3>
+                    </div>
+                    <div class="panel-body list-group">
+                        <a class="list-group-item" href="#">
+                            <h4 class="list-group-item-heading">Elizabeth Warren (D), MA</h4>
+                            <p class="list-group-item-text">"Elizabeth Warren has voted NAY on a bill designed to ..."</p>
+                        </a>
+                        <a class="list-group-item" href="#">
+                            <h4 class="list-group-item-heading">Bernie Sanders (D), VT</h4>
+                            <p class="list-group-item-text">"Bernie Sanders has voted YAY on a bill designed to ..."</p>
+                        </a>
+                        <a class="list-group-item" href="#">
+                            <h4 class="list-group-item-heading">Paul Ryan (R), WI</h4>
+                            <p class="list-group-item-text">"LIVE: Paul Ryan delivers a speech regarding the status of Obamacare repeal ..."</p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <h3 class="panel-title"><span class="glyphicon glyphicon-list-alt"></span>&nbsp;New Bill Proposal</h3>
+                    </div>
+                    <div class="panel-body">
+                        <p>Bill <a href="#">H.R. 1547: Udall Park Land Exchange Completion Act</a> has been sent to the house floor</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <h3 class="panel-title"><span class="glyphicon glyphicon-envelope"></span>&nbsp;PolitiFind Voting Results</h3>
+                    </div>
+                    <div class="panel-body">
+                        PolitiFind users have voted 15,233-2,781 in favor of bill <a href="#">H.R. 36: Pain-Capable Unborn Child Protection Act</a>. Results have been sent to the introducer of the bill.
+                    </div>
+                </div>
+            </div>
+        </div>
+</body>
 </html>
