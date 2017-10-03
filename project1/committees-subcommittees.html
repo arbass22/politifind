@@ -1,0 +1,155 @@
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Committees - Politifind</title>
+    <link rel="stylesheet" href="navbar-styles.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="committees-styles.css">
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+</head>
+<body>
+    <nav id="main-nav" class="navbar bg-primary">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="pull-right">
+                        <a id="main-logo" class="navbar-brand">politi-find</a>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <form class="navbar-form">
+                        <input id="omnisearch" class="form-control" placeholder="Search people, bills, committees..." type="search"></input>
+                    </form>
+                </div>
+                <div class="col-md-3 text-right btn-login">
+                    <button type="button" class="btn navbar-btn btn-link" >Login</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <!--title of committee-->
+    <div class="container">
+        <div class="col-md-12 text-center">
+            <h1>Senate Committee on Armed Services</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4 col-md-offset-3 text-left">
+            <p>The Senate Committee on Armed Services has legislative jurisdiction over military and defense. <a href="http://armed-services.senate.gov/">Website</a>.</p>
+        </div>
+        <div class="col-md-2">
+            <button type="button" class="btn btn-default btn-lg btn-block">Subscribe!</button>
+        </div>
+    </div>
+    <div class="row"><div class="col-md-6 col-md-offset-3"><hr></div></div>
+    <!--chair and ranking member cards-->
+    <div class="row">
+        <div class="politician-profile">
+            <div class="col-md-3 col-md-offset-3">
+                <div class="centered">
+                    <div class="title">Chair</div>
+                    <div class="name">Sen. John McCain</div>
+                    <div class="picture-frame">
+                        <img src="https://goo.gl/7YcQYa"/>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="media">
+                    <div class="centered">
+                        <div class="title">Ranking Member</div>
+                        <div class="name">Sen. John "Jack" Reed</div>
+                        <div class="picture-frame">
+                            <img src="https://goo.gl/Vt9CA8"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row"><div class="col-md-6 col-md-offset-3"><hr></div></div>
+    <!--party distribution-->
+    <div class="row">
+        <div class="col-md-2 col-md-offset-3">
+            <div class="republican">Republicans - 14</div>
+        </div>
+        <div class="col-md-2">
+            <div class="independent">Independents - 1</div>
+        </div>
+        <div class="col-md-2">
+            <div class="democrat">Democrats - 12</div>
+        </div>
+    </div>
+    <div class="row"><div class="col-md-6 col-md-offset-3"><hr></div></div>
+    <!--committee navigation bar-->
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3 text-center">
+            <div class="committee-nav">
+                <a href="committees.html">Members</a>
+                <a href="committees-bills.html">Bills</a>
+                <a href="committees-reports.html">Reports</a>
+                <a href="committees-subcommittees.html" class="active">Subcommittees</a>
+                <br>
+            </div>
+        </div>
+    </div>
+    <!--subcommittees content-->
+    <div class="content">
+        <div class="row">
+            <div class="col-md-4 col-md-offset-4">
+                <input type="search" class="form-control" placeholder="Search subcommittees...">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <div class="card-section-header">
+                    List of Subcommittees
+                    <hr>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4 col-md-offset-2">
+                <div class="card">
+                    <span class="subcommittee-name">Subcommittee #1 Name</span>
+                    <hr>
+                    <div>
+                        Description of Subcommittee #1 Here.
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <span class="subcommittee-name">Subcommittee #2 Name</span>
+                    <hr>
+                    <div>
+                        Description of Subcommittee #2 Here.
+                    </div>
+                </div>
+            </div>
+        </div> 
+        <div class="row">
+            <div class="col-md-4 col-md-offset-2">
+                <div class="card">
+                    <span class="subcommittee-name">Subcommittee #3 Name</span>
+                    <hr>
+                    <div>
+                        Description of Subcommittee #3 Here.
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <span class="subcommittee-name">Subcommittee #4 Name</span>
+                    <hr>
+                    <div>
+                        Description of Subcommittee #4 Here.
+                    </div>
+                </div>
+            </div>
+       </div> 
+    </div>
+</body>
+</html>
