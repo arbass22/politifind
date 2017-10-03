@@ -23,3 +23,7 @@
 .page-nav a:hover {
     text-decoration: none;
 }
+
+.btn-link a {
+    color: white;
+}
