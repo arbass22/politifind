@@ -94,7 +94,7 @@ hr {
 
 .card img {
    display: block;
-    margin: 0 auto; 
+    margin: 0 auto;
 }
 
 .card > .title {
@@ -202,4 +202,12 @@ span.center-image {
 .centered {
     display: inline;
     text-align: center;
+}
+
+.dropdown-menu > li .active-page {
+    background: rgb(245,245,245);
+}
+
+.dropdown:hover {
+    cursor: pointer;
 }

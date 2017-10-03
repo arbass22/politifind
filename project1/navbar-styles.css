@@ -15,3 +15,11 @@
 .btn-login button {
     color: white;
 }
+
+.dropdown-menu > li .active-page {
+    background: rgb(245,245,245);
+}
+
+.dropdown:hover {
+    cursor: pointer;
+}

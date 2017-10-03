@@ -149,3 +149,11 @@
 .timeline-body > p + p {
   margin-top: 5px;
 }
+
+.dropdown-menu > li .active-page {
+    background: rgb(245,245,245);
+}
+
+.dropdown:hover {
+    cursor: pointer;
+}

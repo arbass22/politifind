@@ -3,27 +3,14 @@
     overflow-y: scroll;
 }
 
-.page-nav a {
-    color: black;
-    padding-bottom: 6px;
-    margin-right: 16px;
-    font-size: 16px;
-}
-
-.page-nav a.active {
-    color: black;
-    border-bottom: 2px solid #081491;
-}
-
-.page-nav a:hover {
-    border-bottom: 2px solid darkgrey;
-    color: black;
-}
-
-.page-nav a:hover {
-    text-decoration: none;
-}
-
 .btn-link a {
     color: white;
+}
+
+.dropdown-menu > li .active-page {
+    background: rgb(245,245,245);
+}
+
+.dropdown:hover {
+    cursor: pointer;
 }
