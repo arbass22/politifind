@@ -113,7 +113,6 @@ class Committee(models.Model):
     cid = models.CharField(max_length=64, primary_key=True, help_text="Enter the id of the committee")
     name = models.CharField(max_length=200, help_text="Enter the name of this committee")
     chair_pid = models.ForeignKey('Politician', help_text="Enter the politician id of the chair")
-    member_count = models.IntegerField(help_text="Enter the number of members in this committee")
     is_subcommittee = models.BooleanField(help_text="Enter True if this is a subcommittee, False otherwise")
 
     def __str__(self):
