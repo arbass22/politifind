@@ -1,0 +1,11 @@
+body {
+    background-color: lightgrey;
+}
+
+.panel hr {
+    margin: 15px 0px 15px 0px;
+}
+
+.panel {
+    border: none;
+}
