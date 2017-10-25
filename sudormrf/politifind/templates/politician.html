@@ -1,0 +1,64 @@
+{% extends "base_template.html" %}
+
+{% block page_title %} Politician {% endblock %}
+{% block custom_css %}
+{% load static %}
+<link rel='stylesheet' type="text/css" href="{% static 'css/politician-styles.css' %}"></link>
+{% endblock %}
+
+{% block page_content %}
+<div class="top-section">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 col-md-offset-3">
+          <div class="row politician-profile">
+            <div class="col-xs-4">
+              <div class="image-frame">
+                <img src="{{ politician.image_url }}"/>
+              </div>
+            </div>
+            <div class="col-xs-8 text-center center-block">
+              <div class="name">{{ politician.name }} ({{ politician.party}})</div>
+              <div>Senator from Vermont</div>
+            </div>
+
+          </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3 main-column">
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <div class="card-header">
+            {{ politician.name }} is a member of {{ committee_membership|length }} committees.
+          </div>
+          <hr>
+          {% for committee in committee_membership %}
+          <div>
+            <span>{{ committee.name}}</span>
+            <span>{{ committee.tenure }}</span>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <div class="card-header">
+            {{ politician.name }} sponsored {{ bill_sponsorship|length }} bills this year.
+          </div>
+          <hr>
+          {% for bill in bill_sponsorship %}
+          <div>
+            <span>{{ bill.code}}</span>
+            <span>{{ bill.name }}</span>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

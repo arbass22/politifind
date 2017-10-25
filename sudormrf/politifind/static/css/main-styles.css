@@ -3,6 +3,12 @@ body {
     padding-top: 70px;
 }
 
+.top-section {
+    background-color: white;
+    margin-bottom: 24px;
+    padding: 24px;
+}
+
 .panel hr {
     margin: 15px 0px 15px 0px;
 }
@@ -25,10 +31,10 @@ body {
 
 .navbar-default .navbar-brand {
     color: white;
-    
+
 }
 
 .navbar-default .navbar-brand:hover,
 .navbar-default .navbar-brand:focus {
-    color: white;    
+    color: white;
 }
