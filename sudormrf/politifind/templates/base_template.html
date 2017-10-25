@@ -12,9 +12,35 @@
     {% block custom_css %}{% endblock %}
   </head>
   <body>
-      <nav>This is a navbar</nav>
-      {% block page_content %}
-      <p>This is placeholder page content</p>
-      {% endblock %}
+
+
+    <div class="navbar navbar-default navbar-fixed-top">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-navbar-collapse" aria-expanded="false">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="{% url 'index' %}">Politifind</a>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-navbar-collapse">
+          <form class="navbar-form navbar-left">
+            <div class="form-group" style="width:500px%;">
+              <input type="text" class="form-control" placeholder="Search">
+            </div>
+          </form>
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="">Politicians</a></li>
+            <li><a href="">Bills</a></li>
+            <li><a href="">Committees</a></li>
+            <li><a href=""><span class="glyphicon glyphicon-user"></span></a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+ 
+      {% block page_content %}{% endblock %}
   </body>
 </html>
