@@ -64,3 +64,24 @@
 .social a:hover {
     text-decoration: none;
 }
+
+.politician-bill-section {
+    margin-bottom: 24px;
+}
+
+.politician-bill-section h4 {
+    display: inline-block;
+}
+
+.politician-bill-section .header hr {
+    border-color: black;
+    margin-top: 4px;
+}
+
+.politician-bill-section .search {
+    display: inline-block;
+    width: 50%;
+    float: right;
+    height: 30px;
+    margin-top: 6px;
+}
