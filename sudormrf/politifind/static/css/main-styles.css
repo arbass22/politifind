@@ -1,5 +1,6 @@
 body {
     background-color: lightgrey;
+    padding-top: 70px;
 }
 
 .panel hr {
@@ -8,4 +9,26 @@ body {
 
 .panel {
     border: none;
+}
+
+.navbar-default {
+    background-color: #428bca;
+}
+
+.nav.navbar-nav.navbar-right li a {
+    color: white;
+}
+
+.navbar-default .navbar-toggle .icon-bar {
+    background-color: white;
+}
+
+.navbar-default .navbar-brand {
+    color: white;
+    
+}
+
+.navbar-default .navbar-brand:hover,
+.navbar-default .navbar-brand:focus {
+    color: white;    
 }
