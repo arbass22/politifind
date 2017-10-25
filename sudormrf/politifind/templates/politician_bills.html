@@ -1,5 +1,25 @@
 {% extends 'politician_base.html' %}
 
 {% block politician_content %}
-bills
+<div class="container">
+  <div class="row">
+    <div class="col-sm-6 col-sm-offset-3 col-md-8 col-md-offset-2">
+      <div>Recently sponsored</div>
+      <hr>
+      {% for bill in bill_sponsorship %}
+        {% include 'bill-sponsor-card.html' with bill=bill only %}
+      {% endfor %}
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-6 col-sm-offset-3 col-md-8 col-md-offset-2">
+      <div>Recently voted</div>
+      <hr>
+      {% for bill in bill_sponsorship %}
+        {% include 'bill-sponsor-card.html' with bill=bill only %}
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
 {% endblock %}

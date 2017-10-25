@@ -32,14 +32,17 @@ def politician(request, id, page=None):
         {
             "name": "Medicare for All Act of 2017",
             "code": "S.1804",
+            "status": "In committee",
         },
         {
-            "name": "Medicare for All Act of 2017",
+            "name": "Othe bill that does something",
             "code": "S.1804",
+            "status": "In committee"
         },
         {
-            "name": "Medicare for All Act of 2017",
+            "name": "Here is a bill that has a long name since that is something that a lot of bills have",
             "code": "S.1804",
+            "status": "Passed in House"
         },
     ]
 
