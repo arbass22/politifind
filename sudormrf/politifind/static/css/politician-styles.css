@@ -7,8 +7,8 @@
 }
 
 .politician-profile .image-frame {
-    height: 200px;
-    width: 200px
+    height: 150px;
+    width: 150px
 }
 
 @media all and (max-width: 768px) {
@@ -19,5 +19,14 @@
 }
 
 .politician-profile .name {
-    font-size: 24px;
+    font-size: 32px;
+}
+
+.politician-profile .position {
+    font-size: 22px;
+}
+
+.section-nav li {
+    display: inline-block;
+    margin: 12px;
 }
