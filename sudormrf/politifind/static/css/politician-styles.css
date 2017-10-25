@@ -30,3 +30,37 @@
     display: inline-block;
     margin: 12px;
 }
+
+.social .icon {
+    width: 24px;
+}
+
+.social .item:hover {
+    background-color: #e8e8e8;
+}
+
+.social .item {
+    padding-top: 6px;
+    padding-bottom: 6px;
+}
+
+.social .row {
+    margin-left: 0px;
+    margin-right: 0px;
+}
+
+.social hr {
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+.recent-posts {
+    color: grey;
+    font-size: 12px;
+    margin-left: 6px;
+    margin-top: 12px;
+}
+
+.social a:hover {
+    text-decoration: none;
+}
