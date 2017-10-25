@@ -2,19 +2,29 @@
 
 {% block politician_content %}
 <div class="container">
-  <div class="row">
+  <div class="row politician-bill-section">
     <div class="col-sm-6 col-sm-offset-3 col-md-8 col-md-offset-2">
-      <div>Recently sponsored</div>
-      <hr>
+      <div class="header">
+        <div>
+          <h4>Recently sponsored</h4>
+          <input type="text" class="form-control search" placeholder="Search"></input>
+        </div>
+        <hr>
+      </div>
       {% for bill in bill_sponsorship %}
         {% include 'bill-sponsor-card.html' with bill=bill only %}
       {% endfor %}
     </div>
   </div>
-  <div class="row">
+  <div class="row politician-bill-section">
     <div class="col-sm-6 col-sm-offset-3 col-md-8 col-md-offset-2">
-      <div>Recently voted</div>
-      <hr>
+      <div class="header">
+        <div>
+          <h4>Recently votes on</h4>
+          <input type="text" class="form-control search" placeholder="Search"></input>
+        </div>
+        <hr>
+      </div>
       {% for bill in bill_sponsorship %}
         {% include 'bill-sponsor-card.html' with bill=bill only %}
       {% endfor %}
