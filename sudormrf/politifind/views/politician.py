@@ -1,7 +1,7 @@
 from django.shortcuts import render
 
-def politician(request, id):
 
+def politician(request, id, page=None):
     politician = {
         "name": "Bernie Sanders",
         "position": "Senator",
@@ -41,15 +41,29 @@ def politician(request, id):
             "name": "Medicare for All Act of 2017",
             "code": "S.1804",
         },
-
     ]
 
-    return render(
-        request,
-        'politician.html',
-        context={
-            'politician': politician,
-            'committee_membership': committee_membership,
-            'bill_sponsorship': bill_sponsorship
-        },
-    )
+    context = {
+        'politician': politician,
+        'committee_membership': committee_membership,
+        'bill_sponsorship': bill_sponsorship
+    }
+
+    if page == 'votes':
+        return render(
+            request,
+            'politician_votes.html',
+            context=context,
+        )
+    elif page == 'bills':
+        return render(
+            request,
+            'politician_bills.html',
+            context=context,
+        )
+    else:
+        return render(
+            request,
+            'politician_home.html',
+            context=context,
+        )

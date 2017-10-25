@@ -4,6 +4,6 @@ from . import views
 
 urlpatterns = [
     url(r'^$', views.index, name='index'),
-    url(r'^politician/(.*)', views.politician, name='politician'),
     url(r'^bill/(.*)', views.bill, name='bill'),
+    url(r'^politician/(.*)/(bills|votes)*', views.politician, name='politician'),
 ]

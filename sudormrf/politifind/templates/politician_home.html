@@ -1,0 +1,36 @@
+{% extends 'politician_base.html' %}
+
+{% block politician_content %}
+<div class="row">
+  <div class="col-md-6 col-md-offset-3 main-column">
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <div class="card-header">
+          {{ politician.name }} is a member of {{ committee_membership|length }} committees.
+        </div>
+        <hr>
+        {% for committee in committee_membership %}
+        <div>
+          <span>{{ committee.name}}</span>
+          <span>{{ committee.tenure }}</span>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <div class="card-header">
+          {{ politician.name }} sponsored {{ bill_sponsorship|length }} bills this year.
+        </div>
+        <hr>
+        {% for bill in bill_sponsorship %}
+        <div>
+          <span>{{ bill.code}}</span>
+          <span>{{ bill.name }}</span>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

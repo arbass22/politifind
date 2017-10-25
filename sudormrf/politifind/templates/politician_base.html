@@ -1,0 +1,36 @@
+{% extends "base_template.html" %}
+
+{% block page_title %} Politician {% endblock %}
+{% block custom_css %}
+{% load static %}
+<link rel='stylesheet' type="text/css" href="{% static 'css/politician-styles.css' %}"></link>
+{% endblock %}
+
+{% block page_content %}
+<div class="top-section">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 col-md-offset-3">
+          <div class="row politician-profile">
+            <div class="col-xs-4">
+              <div class="image-frame">
+                <img src="{{ politician.image_url }}"/>
+              </div>
+            </div>
+            <div class="col-xs-8 text-center center-block">
+              <div class="name">{{ politician.name }} ({{ politician.party}})</div>
+              <div class="position">Senator from Vermont</div>
+              <div class="section-nav">
+                <li><a href={% url 'politician' 12 %}>Home</a></li>
+                <li><a href={% url 'politician' 12 'votes' %}>Votes</a></li>
+                <li><a href={% url 'politician' 12 'bills' %}>Bills</a></li>
+              </div>
+            </div>
+          </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% block politician_content %}
+{% endblock %}
+{% endblock %}
