@@ -9,6 +9,12 @@ body {
     padding: 24px;
 }
 
+.top-section {
+    background-color: white;
+    margin-bottom: 24px;
+    padding: 24px;
+}
+
 .panel hr {
     margin: 15px 0px 15px 0px;
 }
