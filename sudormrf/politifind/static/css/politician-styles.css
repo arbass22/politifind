@@ -1,0 +1,23 @@
+.politician-profile img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    padding: 8px;
+    border: solid 2px black;
+}
+
+.politician-profile .image-frame {
+    height: 200px;
+    width: 200px
+}
+
+@media all and (max-width: 768px) {
+    .politician-profile .image-frame {
+        height: 150px;
+        width: 150px
+    }
+}
+
+.politician-profile .name {
+    font-size: 24px;
+}
