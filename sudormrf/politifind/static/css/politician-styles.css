@@ -78,6 +78,10 @@
     margin-top: 4px;
 }
 
+.politician-vote-section .summary .metric {
+    font-size: 26px;
+}
+
 .politician-bill-section .search {
     display: inline-block;
     width: 50%;
