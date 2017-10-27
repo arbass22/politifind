@@ -2,6 +2,17 @@
 
 {% block politician_content %}
 <div class="container politician-vote-section">
-  {% include "components/politician_vote_summary_card.html" %}
+  <div class="row">
+    {% include "components/politician_vote_summary_card.html" %}
+  </div>
+  <div class="row">
+    <div class="card-section-header">
+      <div>Recent votes</div>
+      <hr>
+    </div>
+    {% for i in "xxxxxx" %}
+      {% include "components/politician_vote_card.html" %}
+    {% endfor %}
+  </div>
 </div>
 {% endblock %}
