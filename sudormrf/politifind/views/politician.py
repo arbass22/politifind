@@ -46,10 +46,29 @@ def politician(request, id, page=None):
         },
     ]
 
+    recent_votes = [
+        {
+            "name": "Medicare for All Act of 2017",
+            "code": "S.1804",
+            "vote": "Yay",
+        },
+        {
+            "name": "Othe bill that does something",
+            "code": "S.1804",
+            "vote": "Nay",
+        },
+        {
+            "name": "Here is a bill that has a long name since that is something that a lot of bills have",
+            "code": "HR.123",
+            "vote": "Yay",
+        },
+    ]
+
     context = {
         'politician': politician,
         'committee_membership': committee_membership,
-        'bill_sponsorship': bill_sponsorship
+        'bill_sponsorship': bill_sponsorship,
+        'recent_votes': recent_votes,
     }
 
     if page == 'votes':

@@ -2,10 +2,14 @@
 This card is used to show how a certain politician voted on a bill
 {% endcomment %}
 
-<div class="col-sm-4">
+<div class="col-sm-4 politician-vote-card">
   <div class="panel panel-default">
     <div class="panel-body">
-      Bill!
+      {{ bill.code }} | {{ bill.name}} | {{ bill.vote }}
+      <hr/>
+      <div class="summary">
+          {% lorem 125 w random %}
+      </div>
     </div>
   </div>
 </div>

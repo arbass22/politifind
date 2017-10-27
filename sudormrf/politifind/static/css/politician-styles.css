@@ -88,3 +88,11 @@
     float: right;
     height: 32px;
 }
+
+.politician-vote-card .summary {
+    max-height: 200px;
+    height: 100%;
+    overflow: scroll;
+    white-space: pre-wrap;
+    text-overflow: ellipsis;
+}
