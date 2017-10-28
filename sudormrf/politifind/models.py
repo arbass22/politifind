@@ -35,8 +35,6 @@ class Politician(models.Model):
     twitter = models.CharField(max_length=200, null=True, help_text="Enter the url of the member's twitter profile")
     facebook = models.CharField(max_length=200, null=True, help_text="Enter the url of the member's facebook profile")
     youtube = models.CharField(max_length=200, null=True, help_text="Enter the url of the member's youtube profile")
-    date_elected = models.DateField(help_text="Enter the date this member was elected")
-    gender = models.CharField(max_length=15, help_text="Enter the member's gender")
     dob = models.DateField(help_text="Enter the date of birth of this member")
 
     def __str__(self):
@@ -52,7 +50,7 @@ class Bill(models.Model):
     bid = models.CharField(max_length=64, primary_key=True, help_text="Enter the id for the bill")
     code = models.CharField(max_length=30, help_text="Enter the bill's code")
     name = models.CharField(max_length=200, help_text="Enter the name of the bill")
-    status = models.CharField(max_length=20, help_text="Enter the status of the bill")
+    status = models.CharField(max_length=20, null=True, help_text="Enter the status of the bill")
     subject = models.CharField(max_length=50, help_text="Enter the subject of the bill")
     summary = models.CharField(max_length=1000, help_text="Enter the summary of the bill")
     latest_action_date = models.DateField(help_text="Enter the date of the most recent action of the bill")
@@ -112,8 +110,8 @@ class Committee(models.Model):
     """
     cid = models.CharField(max_length=64, primary_key=True, help_text="Enter the id of the committee")
     name = models.CharField(max_length=200, help_text="Enter the name of this committee")
-    chair_pid = models.ForeignKey('Politician', help_text="Enter the politician id of the chair")
-    is_subcommittee = models.BooleanField(help_text="Enter True if this is a subcommittee, False otherwise")
+    chair_pid = models.ForeignKey('Politician', related_name='chair_pid', help_text="Enter the politician id of the chair", null=True)
+    ranking_member_pid = models.ForeignKey('Politician', related_name='ranking_member_pid', help_text="Enter the politician id of the ranking member", null=True)
 
     def __str__(self):
         """
