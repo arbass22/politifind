@@ -12,4 +12,3 @@ def run():
             new_bill.save()
         except Exception:
             pass
-
