@@ -55,6 +55,7 @@ class Bill(models.Model):
     summary = models.CharField(max_length=1000, help_text="Enter the summary of the bill")
     latest_action_date = models.DateField(help_text="Enter the date of the most recent action of the bill")
     latest_action = models.CharField(max_length=200, help_text="Enter the latest action of the bill")
+    sponsor_pid = models.ForeignKey('Politician', help_text="Enter the pid of the bill's sponsor", null=True)
 
     def __str__(self):
         """
