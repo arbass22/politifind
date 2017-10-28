@@ -124,7 +124,8 @@ class SubCommittee(models.Model):
     """
     Model representing a subcomittee
     """
-    sid = models.ForeignKey('Committee', related_name="subcommittee_cid", help_text="Enter the id of this subcommittee (must also be a valid Committee)")
+    sid = models.CharField(max_length=54, primary_key=True, help_text="Enter the id of this subcommittee (must also be a valid Committee)")
+    name = models.CharField(max_length=200, help_text="Enter the name of this subcommittee", null=True)
     parent_cid = models.ForeignKey('Committee', related_name="parend_cid", help_text="Enter the id of the parent committee of this subcommittee")
 
 class CommitteeMembership(models.Model):
