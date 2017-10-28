@@ -4,3 +4,4 @@
 node_modules/
 sudormrf/db.sqlite3
 sudormrf/politifind/migrations
+.cache
