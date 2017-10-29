@@ -23,16 +23,16 @@
           <a class="navbar-brand" href="{% url 'index' %}">Politifind</a>
         </div>
         <div class="collapse navbar-collapse" id="bs-navbar-collapse">
-          <form class="navbar-form navbar-left">
+          <form class="navbar-form navbar-left" action="{% url 'search' %}">
             <div class="form-group">
-              <input type="text" class="form-control" placeholder="Search">
+              <input class="form-control" placeholder="Search" type="search", name="q">
             </div>
           </form>
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="{% url 'politician' 12 %}">Politicians</a></li>
-            <li><a href="">Bills</a></li>
-            <li><a href="">Committees</a></li>
-            <li><a href=""><span class="glyphicon glyphicon-user"></span></a></li>
+            <li><a href="{% url 'politicians' %}">Politicians</a></li>
+            <li><a href="{% url 'bills' %}">Bills</a></li>
+            <li><a href="{% url 'committees' %}">Committees</a></li>
+            <li><a href="{% url 'profile' %}"><span class="glyphicon glyphicon-user"></span></a></li>
           </ul>
         </div>
       </div>
