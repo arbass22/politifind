@@ -1,0 +1,13 @@
+.search-icon {
+    height: 80px;
+    width: 80px;
+}
+
+.search-result .media-heading {
+    font-size: 20px;
+}
+
+.search-result {
+    color: black;
+    text-decoration: none;
+}

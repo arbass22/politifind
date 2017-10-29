@@ -1,0 +1,22 @@
+<a href="{{ result.url }}">
+  <div class="panel panel-default search-result">
+    <div class="panel-body">
+      <div class="media">
+        <div class="media-left">
+          <div class="search-icon">
+            {% load staticfiles %}
+            <img class="media-object search-icon" src="{% static "images/bill-icon-256.png" %}"/>
+          </div>
+        </div>
+        <div class="media-body">
+          <div class="media-heading">
+            {{ result.title }}
+          </div>
+          <div class="summary">
+            {{ result.summary }}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</a>
