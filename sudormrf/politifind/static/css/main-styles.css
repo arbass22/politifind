@@ -1,18 +1,11 @@
-body {
-    background-color: lightgrey;
+body { background-color: lightgrey;
     padding-top: 70px;
 }
 
 .top-section {
     background-color: white;
-    margin-bottom: 24px;
-    padding: 24px;
-}
-
-.top-section {
-    background-color: white;
-    margin-bottom: 24px;
-    padding: 24px;
+    padding: 24px 24px 0px;
+    margin-bottom: 24px
 }
 
 .panel hr {
@@ -43,4 +36,9 @@ body {
 .navbar-default .navbar-brand:hover,
 .navbar-default .navbar-brand:focus {
     color: white;
+}
+
+.navbar-default .navbar-toggle:focus {
+    background-color: #428bca;
+    color: #428bca;
 }
