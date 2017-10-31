@@ -21,6 +21,22 @@ div.navbar-collapse:not(.collapsing):not(.in) form.navbar-form .form-group input
     width: 500px;
 }
 
+.nav.navbar-nav.navbar-right ul {
+    background-color: #428bca;
+}
+
+.nav.navbar-nav.navbar-right li.open a {
+    background-color: #428bca !important;
+}
+
+.nav.navbar-nav.navbar-right li.open a span {
+    color: white;
+}
+
+.nav.navbar-nav.navbar-right li ul.dropdown-menu li a {
+    color: white;
+}
+
 .navbar-default {
     background-color: #428bca;
 }
