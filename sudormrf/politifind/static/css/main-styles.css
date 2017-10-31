@@ -17,6 +17,10 @@ body {
     border: none;
 }
 
+div.navbar-collapse:not(.collapsing):not(.in) form.navbar-form .form-group input {
+    width: 500px;
+}
+
 .navbar-default {
     background-color: #428bca;
 }
