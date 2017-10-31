@@ -29,7 +29,7 @@ urlpatterns += [
 ]
 
 urlpatterns += [
-    url(r'^$', RedirectView.as_view(url='/politifind/', permanent=True)),
+    url(r'', include('politifind.urls')),
 ]
 
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
