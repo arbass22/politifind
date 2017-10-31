@@ -1,0 +1,15 @@
+.page-header-section {
+    background-color: white;
+}
+
+.committee-makeup .republican {
+    background-color: red;
+}
+
+.committee-makeup .independent {
+    background-color: grey;
+}
+
+.committee-makeup .democrat {
+    background-color: blue;
+}
