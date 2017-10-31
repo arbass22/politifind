@@ -14,7 +14,6 @@
           <div class="row">
             <h1>
               <span class="glyphicon glyphicon-{% if bill.passed %}ok{% else %}remove{% endif %}-sign" aria-hidden="true"></span>
-              &nbsp;
               {{ bill.number }}: {{ bill.title }}
             </h1>
           </div>
@@ -33,6 +32,21 @@
               </p>
             </div>
           </div>
+          <div class="row">
+            <p class="lead">Vote:</p>
+          </div>
+          <div class="row">
+            <div class="col-sm-offset-4 col-sm-4">
+              <div class="btn-group btn-group-justified" role="group">
+                <div class="btn-group">
+                  <button type="button" class="btn btn-default yea-btn">Yea</button>
+                </div>
+                <div class="btn-group">
+                  <button type="button" class="btn btn-default nay-btn">Nay</button>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -44,6 +58,53 @@
           <div class="well well-sm pre-scrollable">
             {{ bill.summary }}
           </div>
+        </div>
+      </div>
+      <hr />
+      <div class="row">
+        <div class="col-sm-offset-2 col-sm-8">
+          <p class="lead" style="text-align:center;">Votes:</p>
+          {% if 'senate' in votes %}
+          <div class="panel panel-default">
+            <div class="panel-heading" style="text-align:center;">
+              <h2 class="panel-title">Senate</h2>
+            </div>
+            <div class="panel-body">
+              <div class="progress">
+                <div class="progress-bar progress-bar-success {% if votes.senate.total_yes > votes.senate.total_no %}progress-bar-striped active{% endif %}" style="width: {% widthratio votes.senate.total_yes votes.senate.total 100 %}%;">Yea</div>
+                <div class="progress-bar progress-bar-danger {% if votes.senate.total_no > votes.senate.total_yes %}progress-bar-striped active{% endif %}" style="width: {% widthratio votes.senate.total_no votes.senate.total 100 %}%;">Nay</div>
+                <div class="progress-bar" style="width: {% widthratio votes.senate.total_not_voting votes.senate.total 100 %}%;">No Vote</div>
+              </div>
+            </div>
+          </div>
+          {% endif %}
+          {% if 'house' in votes %}
+          <div class="panel panel-default">
+            <div class="panel-heading" style="text-align:center;">
+              <h2 class="panel-title">House of Representatives</h2>
+            </div>
+            <div class="panel-body">
+              <div class="progress">
+                <div class="progress-bar progress-bar-success {% if votes.house.total_yes > votes.house.total_no %}progress-bar-striped active{% endif %}" style="width: {% widthratio votes.house.total_yes votes.house.total 100 %}%;">Yea</div>
+                <div class="progress-bar progress-bar-danger {% if votes.house.total_no > votes.house.total_yes %}progress-bar-striped active{% endif %}" style="width: {% widthratio votes.house.total_no votes.house.total 100 %}%;">Nay</div>
+                <div class="progress-bar" style="width: {% widthratio votes.house.total_not_voting votes.house.total 100 %}%;">No Vote</div>
+              </div>
+            </div>
+          </div>
+          {% endif %}
+          {% if 'users' in votes %}
+          <div class="panel panel-default">
+            <div class="panel-heading" style="text-align:center;">
+              <h2 class="panel-title">Politifind Users</h2>
+            </div>
+            <div class="panel-body">
+              <div class="progress">
+                <div class="progress-bar progress-bar-success {% if votes.users.total_yes > votes.users.total_no %}progress-bar-striped active{% endif %}" style="width: {% widthratio votes.users.total_yes votes.users.total 100 %}%;">Yea</div>
+                <div class="progress-bar progress-bar-danger {% if votes.users.total_no > votes.users.total_yes %}progress-bar-striped active{% endif %}" style="width: {% widthratio votes.users.total_no votes.users.total 100 %}%;">Nay</div>
+              </div>
+            </div>
+          </div>
+          {% endif %}
         </div>
       </div>
       <hr />
