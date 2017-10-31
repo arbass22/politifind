@@ -1,0 +1,40 @@
+{% extends "base_template.html" %}
+
+{% block page_title %} Index Page {% endblock %}
+
+{% block page_content %}
+<div class="container">
+  <div class="row"></div>
+    <div class="col-md-6 col-md-offset-3 main-column">
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <div class="card-header">
+                    <a>H.R. 2937: Community Reclamation Partnerships Act</a> passes House
+                </div>
+                <hr>
+                112 - 56
+                Passed
+            </div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <div class="card-header">
+                    I am a card
+                </div>
+                <hr>
+                {% lorem 55 w random %}
+            </div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <div class="card-header">
+                    I am a card
+                </div>
+                <hr>
+                {% lorem 55 w random %}
+            </div>
+        </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

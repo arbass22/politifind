@@ -1,0 +1,22 @@
+{% extends "base_template.html" %}
+
+{% block page_title %} Search {% endblock %}
+{% block custom_css %}
+{% load static %}
+<link rel='stylesheet' type="text/css" href="{% static 'css/search-styles.css' %}"></link>
+{% endblock %}
+
+{% block page_content %}
+This feature does not work yet
+No results found for {{ query }}
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+      {% for result in results %}
+      {% include "components/search-result-card.html" %}
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+{% endblock %}

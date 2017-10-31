@@ -1,0 +1,97 @@
+.politician-profile img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    padding: 8px;
+    border: solid 2px black;
+}
+
+.politician-profile .image-frame {
+    height: 150px;
+    width: 150px
+}
+
+@media all and (max-width: 768px) {
+    .politician-profile .image-frame {
+        height: 150px;
+        width: 150px
+    }
+}
+
+.politician-profile .name {
+    font-size: 32px;
+}
+
+.politician-profile .position {
+    font-size: 22px;
+}
+
+.section-nav li {
+    display: inline-block;
+    margin: 12px;
+}
+
+.social .icon {
+    width: 24px;
+}
+
+.social .item:hover {
+    background-color: #e8e8e8;
+}
+
+.social .item {
+    padding-top: 6px;
+    padding-bottom: 6px;
+}
+
+.social .row {
+    margin-left: 0px;
+    margin-right: 0px;
+}
+
+.social hr {
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+.recent-posts {
+    color: grey;
+    font-size: 12px;
+    margin-left: 6px;
+    margin-top: 12px;
+}
+
+.social a:hover {
+    text-decoration: none;
+}
+
+.politician-bill-section {
+    margin-bottom: 24px;
+}
+
+.card-section-header {
+    font-size: 24px;
+    margin: 0px 12px 0px 12px;
+}
+
+.card-section-header hr {
+    border-color: black;
+    margin-top: 4px;
+}
+
+.politician-vote-section .summary .metric {
+    font-size: 26px;
+}
+
+.politician-bill-section .search {
+    width: 40%;
+    float: right;
+    height: 32px;
+}
+
+.politician-vote-card .summary {
+    max-height: 200px;
+    height: 100%;
+    overflow: scroll;
+    text-overflow: ellipsis;
+}

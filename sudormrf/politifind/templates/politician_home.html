@@ -1,0 +1,66 @@
+{% extends 'politician_base.html' %}
+
+{% block politician_content %}
+<div class="row">
+  <div class="col-md-6 col-md-offset-3 main-column">
+    <div class="panel panel-default social">
+      <div class="panel-body">
+        <div class="row">
+            <div class="item col-md-4 text-center">
+                <a href="#">
+                    <img class="icon" src="https://image.flaticon.com/icons/png/128/174/174848.png"/>
+                    <span class="handle">senatorsanders</span>
+                    <div class="recent-posts">2 posts this week</div>
+                </a>
+            </div>
+            <div class="item col-md-4 text-center">
+                <a href="#">
+                    <img class="icon" src="https://image.flaticon.com/icons/png/128/174/174876.png"/>
+                    <span class="handle">SenSanders</span>
+                    <div class="recent-posts">New posts today</div>
+                </a>
+            </div>
+            <div class="item col-md-4 text-center">
+                <a href="#">
+                    <img class="icon" src="https://image.flaticon.com/icons/png/128/174/174883.png"/>
+                    <span class="handle">senatorsanders</span>
+                    <div class="recent-posts">Last used in September</div>
+                </a>
+            </div>
+          </div>
+        </div>
+        <hr>
+            <div class="panel-body status">Bernie has been the Senator from Vermont for 10 years.  He will be up for relection in 2018.</div>
+    </div>
+
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <div class="card-header">
+          {{ politician.name }} is a member of {{ committee_membership|length }} committees.
+        </div>
+        <hr>
+        {% for committee in committee_membership %}
+        <div>
+          <span>{{ committee.name}}</span>
+          <span>{{ committee.tenure }}</span>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <div class="card-header">
+          {{ politician.name }} sponsored {{ bill_sponsorship|length }} bills this year.
+        </div>
+        <hr>
+        {% for bill in bill_sponsorship %}
+        <div>
+          <span>{{ bill.code}}</span>
+          <span>{{ bill.name }}</span>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

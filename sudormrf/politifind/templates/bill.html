@@ -1,0 +1,93 @@
+{% extends "base_template.html" %}
+
+{% block page_title %} Bill {% endblock %}
+{% block custom_css %}
+{% load static %}
+<link rel='stylesheet' type="text/css" href="{% static 'css/bill-styles.css' %}"></link>
+{% endblock %}
+
+{% block page_content %}
+  <div class="top-section">
+    <div class="container">
+      <div class="row">
+        <div style="text-align:center;">
+          <div class="row">
+            <h1>
+              <span class="glyphicon glyphicon-{% if bill.passed %}ok{% else %}remove{% endif %}-sign" aria-hidden="true"></span>
+              &nbsp;
+              {{ bill.number }}: {{ bill.title }}
+            </h1>
+          </div>
+          <div class="row">
+            <p class="lead">{{ bill.subject }}</p>
+          </div>
+          <div class="row">
+            <div class="col-sm-offset-2 col-sm-4">
+              <p class="lead">
+                Sponsor: {{ bill.sponsor.title }} {{ bill.sponsor.name }} ({{ bill.sponsor.party }}-{{ bill.sponsor.state }})
+              </p>
+            </div>
+            <div class="col-sm-4">
+              <p class="lead">  
+                Committee(s): {% for committee in bill_committees %} {{ committee.name }}{% if not forloop.last %}, {% endif %}{% endfor %}
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+    <div class="container">  
+      <div class="row">
+        <div class="col-sm-offset-2 col-sm-8">
+          <p class="lead" style="text-align:center;">Summary:</p>
+          <div class="well well-sm pre-scrollable">
+            {{ bill.summary }}
+          </div>
+        </div>
+      </div>
+      <hr />
+      <div class="row">
+        <div class="col-sm-offset-2 col-sm-8">
+          <p class="lead" style="text-align:center;">Timeline:</p>
+        </div>
+      </div>
+      <div class="row">
+        <ul class="timeline">
+          {% for action in bill_actions %}
+            <li class="{% if forloop.counter|divisibleby:2 %}timeline-inverted{% endif %}">
+              <div class="timeline-badge {% if not forloop.counter|divisibleby:2 %}info{% endif %}"><i class="timeline-glyph glyphicon glyphicon-time"></i></div>
+              <div class="timeline-panel">
+                <div class="timeline-heading">
+                  <h4 class="timeline-title">{{ action.description }}</h4>
+                </div>
+                <div class="timeline-body">
+                  <p>{{ action.date }}</p>
+                </div>
+              </div>
+            </li>
+          {% endfor %}
+        </ul>
+      </div>
+      <hr />
+      <div class="row">
+        <p class="lead" style="text-align:center;">Similar Bills:</p>
+      </div>
+      <div class="row">
+        {% for sbill in similar_bills %}
+          <div class="col-sm-4">
+            <div class="panel panel-default">
+              <div class="panel-heading" style="text-align:center;">
+                <span class="glyphicon glyphicon-{% if sbill.passed %}ok{% else %}remove{% endif %}-sign"></span>&nbsp;
+                {{ sbill.number }} - {{ sbill.sponsor.title }} {{ sbill.sponsor.name }} ({{ sbill.sponsor.party }}-{{ sbill.sponsor.state }})
+             </div>
+              <div class="panel-body" style="text-align:center;">
+                {{ sbill.title }}
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+
+{% endblock %}

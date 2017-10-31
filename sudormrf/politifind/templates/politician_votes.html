@@ -1,0 +1,18 @@
+{% extends 'politician_base.html' %}
+
+{% block politician_content %}
+<div class="container politician-vote-section">
+  <div class="row">
+    {% include "components/politician_vote_summary_card.html" %}
+  </div>
+  <div class="row">
+    <div class="card-section-header">
+      <div>Recent votes</div>
+      <hr>
+    </div>
+    {% for bill in recent_votes %}
+      {% include "components/politician_vote_card.html" %}
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}
