@@ -1,0 +1,34 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[margin=1in]{geometry}
+
+\begin{document}
+\begin{center}
+\subsection*{Sudo rm -rf / Project 2 Writeup}
+\end{center}
+
+\subsubsection*{Team Writeup}
+
+\pagebreak
+
+\subsubsection*{Andrew Bass Individual Writeup}
+
+\pagebreak
+
+\subsubsection*{Matthew Bissaillon Individual Writeup}
+
+\pagebreak
+
+\subsubsection*{Matthew Gramigna Individual Writeup}
+
+Firstly, I defined all of the models for the app in \verb|models.py|. I also worked (along with Matt Biz) on gathering all of the data used for these models. Most of this data, such as bills politicians or committees, was generating using API calls to the pro-publica congress API that we planned on using for the app.  Another portion of the data, mainly the foreign key-heavy models, were generated randomly e.g. A random politician was chosen to be the sponsor of a given bill. I helped write the scripts that both made the API calls and saved the data in the database, along with the scripts that randomly generate relationships between certain types of data.
+
+I also helped connect the data in the database with the templates that are rendered. Initially, junk data was used in the python scripts to render a specific view. I changed that junk data to be calls to the database, and helped refactor the templates to ensure that the correct variable names and such are being used to render the mock data into the templates. \\
+
+\noindent \textbf{Contribution: 50\%} 
+
+\pagebreak
+
+\subsubsection*{Justin Kennedy Individual Writeup}
+
+\end{document}
