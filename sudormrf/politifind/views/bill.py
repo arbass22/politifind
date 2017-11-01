@@ -1,9 +1,10 @@
 from django.shortcuts import render
-from politifind.models import Bill, BillCommittee
+from politifind.models import Bill, BillCommittee, BillAction
 
 def bill(request, bid):
     bill = Bill.objects.get(bid=bid)
     bill_committees = BillCommittee.objects.filter(bid__exact=bid)
+    bill_actions = BillAction.objects.filter(bid__exact=bid)
 
     votes = {
         'senate': {
@@ -27,29 +28,6 @@ def bill(request, bid):
             'total_no': 30
         }
     }
-
-    bill_actions = [
-        {
-            'date': 'March 4, 2015',
-            'description': 'Bill Introduced',
-        },
-        {
-            'date': 'October 27, 2015',
-            'description': 'Bill passed House',
-        },
-        {
-            'date': 'October 29, 2015',
-            'description': 'Bill passed Senate',
-        },
-        {
-            'date': 'November 1, 2015',
-            'description': 'Bill Enacted by P.O.T.U.S.',
-        },
-        {
-            'date': 'November 1, 2015',
-            'description': 'Bill became a law!',
-        },
-    ]
 
     similar_bills = [
         {

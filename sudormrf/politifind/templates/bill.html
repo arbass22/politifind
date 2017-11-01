@@ -120,10 +120,10 @@
               <div class="timeline-badge {% if not forloop.counter|divisibleby:2 %}info{% endif %}"><i class="timeline-glyph glyphicon glyphicon-time"></i></div>
               <div class="timeline-panel">
                 <div class="timeline-heading">
-                  <h4 class="timeline-title">{{ action.description }}</h4>
+                  <h4 class="timeline-title">{{ action.action }}</h4>
                 </div>
                 <div class="timeline-body">
-                  <p>{{ action.date }}</p>
+                  <p>{{ action.action_date }}</p>
                 </div>
               </div>
             </li>
