@@ -37,8 +37,7 @@
         <hr>
         {% for committee in committee_membership %}
         <div>
-          <span>{{ committee.name}}</span>
-          <span>{{ committee.tenure }}</span>
+          <span>{{ committee.cid.cid }}: {{ committee.cid }}</span>
         </div>
         {% endfor %}
       </div>
@@ -51,8 +50,7 @@
         <hr>
         {% for bill in bill_sponsorship %}
         <div>
-          <span>{{ bill.code}}</span>
-          <span>{{ bill.name }}</span>
+          <span><strong>{{ bill.bid.code }}</strong>: {{ bill.bid.name }}</span>
         </div>
         {% endfor %}
       </div>
