@@ -23,9 +23,20 @@ def committees(request):
             "position": "Ranking Member",
         },
     }
+    page = {
+        "tabs": [{
+            "name": "Members",
+            "url": "#",
+            },
+            {
+            "name": "Bills",
+            "url": "#",
+            }],
+        "active_tab": "Members"
+    }
 
     return render(
         request,
         'committees.html',
-        context={"committee":committee},
+        context={"committee":committee, "page":page},
     )

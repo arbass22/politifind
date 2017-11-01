@@ -24,6 +24,7 @@
         <div class="progress-bar independent" style="width: {% widthratio committee.makeup.independent committee.makeup.total 100 %}%"></div>
           <div class="progress-bar democrat" style="width: {% widthratio committee.makeup.democrat committee.makeup.total 100 %}%"></div>
       </div>
+      {% include "components/tab-bar.html" with tabs=page.tabs %}
     </div>
   </div>
   <div class="row">
