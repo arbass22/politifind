@@ -1,8 +1,8 @@
 from django.shortcuts import render
 from politifind.models import Committee
 
-def committees(request):
-    committees = Committee.objects.all()
+def committee(request, cid):
+    committee = Committee.objects.get(cid=cid)
     page = {
         "tabs": [{
             "name": "Members",
@@ -17,6 +17,6 @@ def committees(request):
 
     return render(
         request,
-        'committees.html',
-        context={"committees":committees, "page":page},
+        'committees_members.html',
+        context={"committee":committee, "page":page},
     )
