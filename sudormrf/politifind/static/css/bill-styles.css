@@ -1,9 +1,27 @@
+.yea-btn, .yea-btn:hover, .yea-btn:active:focus, .yea-btn:focus {
+  background-color: green;
+  color: white;
+}
+
+.nay-btn, .nay-btn:hover, .nay-btn:active:focus, .nay-btn:focus {
+  background-color: darkred;
+  color: white;
+}
+
 .glyphicon.glyphicon-ok-sign {
   color: green;
 }
 
 .glyphicon.glyphicon-remove-sign {
   color: darkred;
+}
+
+.panel-default .panel-heading {
+  background-color: white;
+}
+
+.progress {
+  margin-bottom: 0px;
 }
 
 .timeline {
