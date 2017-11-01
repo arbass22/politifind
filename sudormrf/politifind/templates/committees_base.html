@@ -27,20 +27,9 @@
       {% include "components/tab-bar.html" with tabs=page.tabs %}
     </div>
   </div>
-  <div class="row">
-    <div class="col-md-4">
-      <div>
-        Ranking Member
-      </div>
-      {% include "components/politician-summary-card.html" with person=committee.ranking_member %}
-    </div>
-    <div class="col-md-4">
-      <div>
-        Chair
-      </div>
-      {% include "components/politician-summary-card.html" with person=committee.chair %}
-    </div>
-  </div>
+  {% block section_content %}
+
+  {% endblock %}
 </div>
 
 {% endblock %}

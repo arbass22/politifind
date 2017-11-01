@@ -37,6 +37,6 @@ def committees(request):
 
     return render(
         request,
-        'committees.html',
+        'committees_members.html',
         context={"committee":committee, "page":page},
     )

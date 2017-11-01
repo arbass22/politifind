@@ -1,0 +1,18 @@
+{% extends "committees_base.html" %}
+
+{% block section_content %}
+<div class="row">
+  <div class="col-md-4">
+    <div>
+      Ranking Member
+    </div>
+    {% include "components/politician-summary-card.html" with person=committee.ranking_member %}
+  </div>
+  <div class="col-md-4">
+    <div>
+      Chair
+    </div>
+    {% include "components/politician-summary-card.html" with person=committee.chair %}
+  </div>
+</div>
+{% endblock %}
