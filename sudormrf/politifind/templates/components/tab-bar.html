@@ -1,0 +1,30 @@
+<!--
+struct of data:
+{
+  tabs: [
+    {
+      name: "",
+      url: "",
+    },
+    {
+      name: "",
+      url: ""
+    }
+  }
+  ]
+}
+
+-->
+<div class="row section-tabs">
+  <div class="tabs">
+    {% for tab in tabs %}
+    <div class="tab {% ifequal page.active_tab tab.name %} active {% endifequal %}">
+      <a href="{{ tab.url }}">
+        <div class="tab name">
+          {{ tab.name }}
+        </div>
+      </a>
+    </div>
+    {% endfor %}
+  </div>
+</div>

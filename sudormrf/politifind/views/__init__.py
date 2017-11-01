@@ -4,5 +4,6 @@ from .politician import politician
 from .bills import bills
 from .politicians import politicians
 from .committees import committees
+from .committee import committee
 from .profile import profile
 from .search import search

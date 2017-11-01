@@ -63,3 +63,49 @@ div.navbar-collapse:not(.collapsing):not(.in) form.navbar-form .form-group input
     background-color: #428bca;
     color: #428bca;
 }
+
+.person-card .photo img {
+    width: 100px;
+    height: 100px;
+}
+
+.person-card .name {
+    font-size: 20px;
+}
+
+.person-card .summary {
+    font-size: 14px;
+}
+
+
+/* Page section tabs */
+
+.tab {
+    display: inline-block;
+    margin-left: 8px;
+    margin-right: 8px;
+    padding-bottom: 8px;
+    font-size: 18px;
+}
+
+.tab a {
+    color: black;
+}
+.tab a:hover {
+    text-decoration: none;
+    color: black;
+}
+
+.tabs {
+    margin: 18px;
+    display: block;
+}
+
+.tab.active {
+    border-bottom: 2px solid darkgrey;
+}
+
+.tab.name {
+    font-size: 20px;
+}
+

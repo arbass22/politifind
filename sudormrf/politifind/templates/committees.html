@@ -1,30 +1,24 @@
 {% extends "base_template.html" %}
 
-{% block page_title %} Committees {% endblock %}
+{% block page_title %} Bills {% endblock %}
 {% block custom_css %}
 {% load static %}
 <link rel='stylesheet' type="text/css" href="{% static 'css/committees-styles.css' %}"></link>
 {% endblock %}
 
 {% block page_content %}
-<div class="container-fluid">
-  <div class="row page-header-section">
-    <div class="col-md-6 col-md-offset-3 text-center">
-      <h3>{{ committee.name }}</h3>
-      <div class="description">
-        {{ committee.description }}
-      </div>
-      {% include "components/subscribe-button.html" with subscribed=False%}
-      <div>
-        Partisan Makeup
-      </div>
-      <div class="progress committee-makeup">
-        <div class="progress-bar republican" style="width: {% widthratio committee.makeup.republican committee.makeup.total 100 %}%">
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3 main-column">
+    {% for committee in committees %}
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <div>
+          <a href="/committee/{{ committee.cid }}">{{ committee }}</span>
         </div>
-        <div class="progress-bar independent" style="width: {% widthratio committee.makeup.independent committee.makeup.total 100 %}%"></div>
-          <div class="progress-bar democrat" style="width: {% widthratio committee.makeup.democrat committee.makeup.total 100 %}%"></div>
       </div>
     </div>
+    {% endfor %}
   </div>
 </div>
 
