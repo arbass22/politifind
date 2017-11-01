@@ -23,12 +23,12 @@
           <div class="row">
             <div class="col-sm-offset-2 col-sm-4">
               <p class="lead">
-                Sponsor: {{ bill.sponsor }}
+                Sponsor: {{ bill.sponsor_pid }}
               </p>
             </div>
             <div class="col-sm-4">
               <p class="lead">
-                Committee(s): {% for committee in bill_committees %} {{ committee.name }}{% if not forloop.last %}, {% endif %}{% endfor %}
+                Committee(s): {% for committee in bill_committees %} {{ committee.cid }}{% if not forloop.last %}, {% endif %}{% endfor %}
               </p>
             </div>
           </div>
