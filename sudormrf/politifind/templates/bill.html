@@ -15,7 +15,7 @@
             <h1>
               <span class="glyphicon glyphicon-{% if bill.passed %}ok{% else %}remove{% endif %}-sign" aria-hidden="true"></span>
               &nbsp;
-              {{ bill.number }}: {{ bill.title }}
+              {{ bill.code }}: {{ bill.name }}
             </h1>
           </div>
           <div class="row">
@@ -24,11 +24,11 @@
           <div class="row">
             <div class="col-sm-offset-2 col-sm-4">
               <p class="lead">
-                Sponsor: {{ bill.sponsor.title }} {{ bill.sponsor.name }} ({{ bill.sponsor.party }}-{{ bill.sponsor.state }})
+                Sponsor: {{ bill.sponsor }}
               </p>
             </div>
             <div class="col-sm-4">
-              <p class="lead">  
+              <p class="lead">
                 Committee(s): {% for committee in bill_committees %} {{ committee.name }}{% if not forloop.last %}, {% endif %}{% endfor %}
               </p>
             </div>
@@ -37,7 +37,7 @@
       </div>
     </div>
   </div>
-    <div class="container">  
+    <div class="container">
       <div class="row">
         <div class="col-sm-offset-2 col-sm-8">
           <p class="lead" style="text-align:center;">Summary:</p>
