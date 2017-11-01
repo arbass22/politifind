@@ -5,7 +5,7 @@ This card is used to show how a certain politician voted on a bill
 <div class="col-sm-4 politician-vote-card">
   <div class="panel panel-default">
     <div class="panel-body">
-      {{ bill.code }} | {{ bill.name}} | {{ bill.vote }}
+      {{ vote.date_voted }}: {{ vote.vote }} on {{ vote.bid }}
       <hr/>
       <div class="summary">
           {% lorem 125 w random %}
