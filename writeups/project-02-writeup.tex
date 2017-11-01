@@ -19,6 +19,8 @@
 
 \textbf{Overview}
 
+The politifind project aims to make political data more accessible to the average person. The project aims to be easy searchable by items such as politicians, bills, and committees. Other data such as how politicians vote on bills and actions on bills will also be available. In addition, users will eventually be able to provide their own input on certain items, such as the popularity of a bill, and this will be available to all viewers. 
+
 \n\textbf{Members}: Andrew Bass, Matthew Bissaillon, Matthew Gramigna, Justin Kennedy
 
 \n\textbf{Github}: \url{https://github.com/arbass22/politifind}
@@ -27,6 +29,8 @@
 
 \n\textbf{Problems/Successes}
 
+Some of the problems we experienced was having to change our models a couple of times based on the available data from the ProPublica API. Then, since we all individually wrote up a sample page for the mock UI, we spent a lot of time making the templates uniform for UI style and necessary content before we could then add the templatable features. Overall, managing the large amount of data for the project was difficult, but we nicely handled this. We also had two people work on the templates and two people work on the back end data collection, so teamwork was definitely solid for us, because no one was left completely alone doing an item of work.
+
 \pagebreak
 
 \subsubsection*{Andrew Bass Individual Writeup}
@@ -34,12 +38,14 @@
 \pagebreak
 
 \subsubsection*{Matthew Bissaillon Individual Writeup}
+I worked on gathering the data for the app along with Matthew Graminga, which involved me writing some scripts to save mock data into the database. This also involved me adding some data directly through the admin page. I also edited some of the views to make sure the templates were showing the correct data. I also started up the project and performed the first initial steps to work the politifind app. This includes setting up the admin page. \\
 
+\n\textbf{Contribution: 20\%}
 \pagebreak
 
 \subsubsection*{Matthew Gramigna Individual Writeup}
 
-Firstly, I defined all of the models for the app in \verb|models.py|. I also worked (along with Matt Biz) on gathering all of the data used for these models. Most of this data, such as bills politicians or committees, was generating using API calls to the pro-publica congress API that we planned on using for the app.  Another portion of the data, mainly the foreign key-heavy models, were generated randomly e.g. A random politician was chosen to be the sponsor of a given bill. I helped write the scripts that both made the API calls and saved the data in the database, along with the scripts that randomly generate relationships between certain types of data.
+First, I defined all of the models for the app in \verb|models.py|. I also worked (along with Matthew Bissaillon) on gathering all of the data used for these models. Most of this data, such as bills politicians or committees, was generating using API calls to the pro-publica congress API that we planned on using for the app.  Another portion of the data, mainly the foreign key-heavy models, were generated randomly e.g. A random politician was chosen to be the sponsor of a given bill. I helped write the scripts that both made the API calls and saved the data in the database, along with the scripts that randomly generate relationships between certain types of data.
 
 I also helped connect the data in the database with the templates that are rendered. Initially, junk data was used in the python scripts to render a specific view. I changed that junk data to be calls to the database, and helped refactor the templates to ensure that the correct variable names and such are being used to render the mock data into the templates. \\
 
