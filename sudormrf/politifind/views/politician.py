@@ -4,7 +4,7 @@ from politifind.models import Politician, PoliticianVote, CommitteeMembership, B
 
 def politician(request, pid, page=None):
     politician = Politician.objects.get(pid=pid)
-    recent_votes = PoliticianVote.objects.filter(pid__exact=pid)
+    recent_votes = PoliticianVote.objects.filter(pid__exact=pid)[:5]
     committee_membership = CommitteeMembership.objects.filter(pid__exact=pid)
     bill_sponsorship = BillSponsorship.objects.filter(pid__exact=pid)
 

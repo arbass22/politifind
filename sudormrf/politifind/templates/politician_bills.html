@@ -12,7 +12,7 @@
         <hr>
       </div>
       {% for bill in bill_sponsorship %}
-        {% include 'bill-sponsor-card.html' with bill=bill only %}
+        {% include 'bill-sponsor-card.html' with bill=bill.bid only %}
       {% endfor %}
     </div>
   </div>
@@ -25,8 +25,8 @@
         </div>
         <hr>
       </div>
-      {% for bill in bill_sponsorship %}
-        {% include 'bill-sponsor-card.html' with bill=bill only %}
+      {% for bill in recent_votes %}
+        {% include 'bill-sponsor-card.html' with bill=bill.bid only %}
       {% endfor %}
     </div>
   </div>
