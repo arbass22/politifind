@@ -1,6 +1,6 @@
 from random import randrange
 from django.shortcuts import render
-from politifind.models import Bill, BillCommittee, BillAction
+from politifind.models import Bill, BillCommittee, BillAction, PoliticianVote
 
 def bill(request, bid):
     bill = Bill.objects.get(bid=bid)
@@ -9,21 +9,16 @@ def bill(request, bid):
     similar_bills = all_bills[i:i+3]
     bill_committees = BillCommittee.objects.filter(bid__exact=bid)
     bill_actions = BillAction.objects.filter(bid__exact=bid)
+    votes = PoliticianVote.objects.filter(bid__exact=bid)
+    yay = filter(lambda v: v.vote == 'YAY', votes)
+    nay = filter(lambda v: v.vote == 'NAY', votes)
 
     votes = {
-        'senate': {
-            'date': 'November 14, 2017',
-            'total': 110,
-            'total_yes': 51,
-            'total_no': 49,
-            'total_not_voting': 10
-        },
-        'house': {
-            'date': 'November 14, 2017',
-            'total': 110,
-            'total_yes': 47,
-            'total_no': 53,
-            'total_not_voting': 10
+        'congress': {
+            'date': 'November 15, 2017',
+            'total': len(votes),
+            'total_yes': len(yay),
+            'total_no': len(nay)
         },
         'users': {
             'date': 'November 14, 2017',

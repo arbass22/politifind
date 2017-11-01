@@ -64,30 +64,16 @@
       <div class="row">
         <div class="col-sm-offset-2 col-sm-8">
           <p class="lead" style="text-align:center;">Votes:</p>
-          {% if 'senate' in votes %}
+          {% if 'congress' in votes %}
           <div class="panel panel-default">
             <div class="panel-heading" style="text-align:center;">
-              <h2 class="panel-title">Senate</h2>
+              <h2 class="panel-title">Congress</h2>
             </div>
             <div class="panel-body">
               <div class="progress">
-                <div class="progress-bar progress-bar-success {% if votes.senate.total_yes > votes.senate.total_no %}progress-bar-striped active{% endif %}" style="width: {% widthratio votes.senate.total_yes votes.senate.total 100 %}%;">Yea</div>
-                <div class="progress-bar progress-bar-danger {% if votes.senate.total_no > votes.senate.total_yes %}progress-bar-striped active{% endif %}" style="width: {% widthratio votes.senate.total_no votes.senate.total 100 %}%;">Nay</div>
-                <div class="progress-bar" style="width: {% widthratio votes.senate.total_not_voting votes.senate.total 100 %}%;">No Vote</div>
-              </div>
-            </div>
-          </div>
-          {% endif %}
-          {% if 'house' in votes %}
-          <div class="panel panel-default">
-            <div class="panel-heading" style="text-align:center;">
-              <h2 class="panel-title">House of Representatives</h2>
-            </div>
-            <div class="panel-body">
-              <div class="progress">
-                <div class="progress-bar progress-bar-success {% if votes.house.total_yes > votes.house.total_no %}progress-bar-striped active{% endif %}" style="width: {% widthratio votes.house.total_yes votes.house.total 100 %}%;">Yea</div>
-                <div class="progress-bar progress-bar-danger {% if votes.house.total_no > votes.house.total_yes %}progress-bar-striped active{% endif %}" style="width: {% widthratio votes.house.total_no votes.house.total 100 %}%;">Nay</div>
-                <div class="progress-bar" style="width: {% widthratio votes.house.total_not_voting votes.house.total 100 %}%;">No Vote</div>
+                <div class="progress-bar progress-bar-success {% if votes.congress.total_yes > votes.congress.total_no %}progress-bar-striped active{% endif %}" style="width: {% widthratio votes.congress.total_yes votes.congress.total 100 %}%;">Yea</div>
+                <div class="progress-bar progress-bar-danger {% if votes.congress.total_no > votes.congress.total_yes %}progress-bar-striped active{% endif %}" style="width: {% widthratio votes.congress.total_no votes.congress.total 100 %}%;">Nay</div>
+                <div class="progress-bar" style="width: {% widthratio votes.congress.total_not_voting votes.congress.total 100 %}%;">No Vote</div>
               </div>
             </div>
           </div>
