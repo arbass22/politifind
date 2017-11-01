@@ -36,9 +36,11 @@
         </div>
         <hr>
         {% for committee in committee_membership %}
-        <div>
-          <span>{{ committee.cid.cid }}: {{ committee.cid }}</span>
-        </div>
+          <a href="{% url "committee" committee.cid %}">
+            <div>
+              <span>{{ committee.name }}</span>
+            </div>
+          </a>
         {% endfor %}
       </div>
     </div>
