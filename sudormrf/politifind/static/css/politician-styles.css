@@ -69,16 +69,6 @@
     margin-bottom: 24px;
 }
 
-.card-section-header {
-    font-size: 24px;
-    margin: 0px 12px 0px 12px;
-}
-
-.card-section-header hr {
-    border-color: black;
-    margin-top: 4px;
-}
-
 .politician-vote-section .summary .metric {
     font-size: 26px;
 }

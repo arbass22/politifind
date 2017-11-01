@@ -2,6 +2,12 @@
 
 {% block section_content %}
 <div class="row">
+  <div class="card-section-header">
+    <div>
+      <span>Leadership</span>
+    </div>
+    <hr>
+  </div>
   <div class="col-md-4">
     <div>
       Ranking Member
@@ -13,6 +19,26 @@
       Chair
     </div>
     {% include "components/politician-summary-card.html" with person=committee.chair_pid %}
+  </div>
+</div>
+<div class="row">
+  <div class="card-section-header">
+    <div>
+      <span>Members</span>
+    </div>
+    <hr>
+  </div>
+  <div class="col-md-4">
+    {% include "components/politician-summary-card.html" with person=committee.ranking_member_pid %}
+  </div>
+  <div class="col-md-4">
+    {% include "components/politician-summary-card.html" with person=committee.ranking_member_pid %}
+  </div>
+  <div class="col-md-4">
+    {% include "components/politician-summary-card.html" with person=committee.ranking_member_pid %}
+  </div>
+  <div class="col-md-4">
+    {% include "components/politician-summary-card.html" with person=committee.ranking_member_pid %}
   </div>
 </div>
 {% endblock %}
