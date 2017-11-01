@@ -140,10 +140,10 @@
             <div class="panel panel-default">
               <div class="panel-heading" style="text-align:center;">
                 <span class="glyphicon glyphicon-{% if sbill.passed %}ok{% else %}remove{% endif %}-sign"></span>&nbsp;
-                {{ sbill.number }} - {{ sbill.sponsor.title }} {{ sbill.sponsor.name }} ({{ sbill.sponsor.party }}-{{ sbill.sponsor.state }})
+                {{ sbill }}
              </div>
               <div class="panel-body" style="text-align:center;">
-                {{ sbill.title }}
+                {{ sbill.sponsor_pid }}
               </div>
             </div>
           </div>

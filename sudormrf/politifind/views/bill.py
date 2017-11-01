@@ -1,8 +1,12 @@
+from random import randrange
 from django.shortcuts import render
 from politifind.models import Bill, BillCommittee, BillAction
 
 def bill(request, bid):
     bill = Bill.objects.get(bid=bid)
+    all_bills = Bill.objects.all()
+    i = randrange(0, len(all_bills))
+    similar_bills = all_bills[i:i+3]
     bill_committees = BillCommittee.objects.filter(bid__exact=bid)
     bill_actions = BillAction.objects.filter(bid__exact=bid)
 
@@ -28,45 +32,6 @@ def bill(request, bid):
             'total_no': 30
         }
     }
-
-    similar_bills = [
-        {
-            'id': '12345',
-            'number': 'H.R.2739',
-            'title': 'Efficient Use of Government Spectrum Act of 2013',
-            'passed': False,
-            'sponsor': {
-                'title': 'Rep',
-                'name': 'Doris Matsui',
-                'state': 'CA',
-                'party': 'D'
-            }
-        },
-        {
-            'id': '12345',
-            'number': 'H.R.2739',
-            'title': 'Efficient Use of Government Spectrum Act of 2013',
-            'passed': False,
-            'sponsor': {
-                'title': 'Rep',
-                'name': 'Doris Matsui',
-                'state': 'CA',
-                'party': 'D'
-            }
-        },
-        {
-            'id': '12345',
-            'number': 'H.R.2739',
-            'title': 'Efficient Use of Government Spectrum Act of 2013',
-            'passed': False,
-            'sponsor': {
-                'title': 'Rep',
-                'name': 'Doris Matsui',
-                'state': 'CA',
-                'party': 'D'
-            }
-        },
-    ]
 
     return render(
         request,
