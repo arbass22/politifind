@@ -20,7 +20,7 @@ struct of data:
     {% for tab in tabs %}
     <div class="tab {% ifequal page.active_tab tab.name %} active {% endifequal %}">
       <a href="{{ tab.url }}">
-        <div class="name">
+        <div class="tab name">
           {{ tab.name }}
         </div>
       </a>

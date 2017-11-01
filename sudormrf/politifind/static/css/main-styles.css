@@ -82,8 +82,8 @@ div.navbar-collapse:not(.collapsing):not(.in) form.navbar-form .form-group input
 
 .tab {
     display: inline-block;
-    margin-left: 12px;
-    margin-right: 12px;
+    margin-left: 8px;
+    margin-right: 8px;
     padding-bottom: 8px;
     font-size: 18px;
 }
@@ -97,11 +97,15 @@ div.navbar-collapse:not(.collapsing):not(.in) form.navbar-form .form-group input
 }
 
 .tabs {
-    margin: 24px;
-
+    margin: 18px;
+    display: block;
 }
 
 .tab.active {
     border-bottom: 2px solid darkgrey;
+}
+
+.tab.name {
+    font-size: 20px;
 }
 

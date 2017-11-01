@@ -18,13 +18,9 @@
               </div>
             </div>
             <div class="col-xs-8 text-center center-block">
-              <div class="name">{{ politician }}</div>
+              <div class="politician name">{{ politician }}</div>
               <div class="position">{{ politician.title }} from {{ politician.state }}</div>
-              <div class="section-nav">
-                <li><a href={% url 'politician' politician.pid %}>Home</a></li>
-                <li><a href={% url 'politician' politician.pid 'votes' %}>Votes</a></li>
-                <li><a href={% url 'politician' politician.pid 'bills' %}>Bills</a></li>
-              </div>
+              {% include "components/tab-bar.html" with tabs=page.tabs %}
             </div>
           </div>
       </div>
