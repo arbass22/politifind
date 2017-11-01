@@ -1,6 +1,14 @@
 \documentclass{article}
 \usepackage[utf8]{inputenc}
 \usepackage[margin=1in]{geometry}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=black,
+}
+\newcommand{\n}{\noindent}
 
 \begin{document}
 \begin{center}
@@ -8,6 +16,16 @@
 \end{center}
 
 \subsubsection*{Team Writeup}
+
+\textbf{Overview}
+
+\n\textbf{Members}: Andrew Bass, Matthew Bissaillon, Matthew Gramigna, Justin Kennedy
+
+\n\textbf{Github}: \url{https://github.com/arbass22/politifind}
+
+\n\textbf{Design Overview}
+
+\n\textbf{Problems/Successes}
 
 \pagebreak
 
@@ -25,7 +43,7 @@ Firstly, I defined all of the models for the app in \verb|models.py|. I also wor
 
 I also helped connect the data in the database with the templates that are rendered. Initially, junk data was used in the python scripts to render a specific view. I changed that junk data to be calls to the database, and helped refactor the templates to ensure that the correct variable names and such are being used to render the mock data into the templates. \\
 
-\noindent \textbf{Contribution: 50\%} 
+\n\textbf{Contribution: 50\%} 
 
 \pagebreak
 
