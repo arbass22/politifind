@@ -3,13 +3,13 @@
       <div class="media">
         <div class="media-left">
           <div class="photo">
-            <img class="media-object" src="https://goo.gl/fNRsU8">
+            <img class="media-object" src="{{ person.picture }}">
           </div>
         </div>
         <div class="media-body media-middle text-center">
-          <div class="name">{{ person.name }} ({{ person.party_abr }})</div>
+          <div class="name">{{ person }}</div>
           <div class="summary">
-            {{ person.summary }}
+            {{ person.title }}
           </div>
         </div>
       </div>
