@@ -33,7 +33,6 @@ def politician(request, pid, page=None):
 
 
     if page == 'votes':
-        print "Hello"
         context['page']['active_tab'] = "Votes"
         return render(
             request,
@@ -48,7 +47,6 @@ def politician(request, pid, page=None):
             context=context,
         )
     else:
-        print "Hello2"
         context['page']['active_tab'] = "Home"
         return render(
             request,

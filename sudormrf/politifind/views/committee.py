@@ -31,7 +31,6 @@ def committee(request, cid, page=None):
     elif page == "subcomittees":
         page_context["active_tab"] = "Subcommittees"
         subcommittees = map(lambda x: x, SubCommittee.objects.filter(parent_cid__exact=cid))
-        print subcommittees
         return render(
             request,
             'committees_subcommittees.html',
