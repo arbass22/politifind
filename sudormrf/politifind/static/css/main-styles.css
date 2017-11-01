@@ -63,3 +63,17 @@ div.navbar-collapse:not(.collapsing):not(.in) form.navbar-form .form-group input
     background-color: #428bca;
     color: #428bca;
 }
+
+.person-card .photo img {
+    width: 100px;
+    height: 100px;
+}
+
+.person-card .name {
+    font-size: 20px;
+}
+
+.person-card .summary {
+    font-size: 14px;
+}
+

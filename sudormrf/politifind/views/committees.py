@@ -10,6 +10,18 @@ def committees(request):
             "democrat": 10,
             "independent": 2,
         },
+        "chair": {
+                "name": "John Smith",
+                "party_abr": "R",
+                "summary": "Puppy from NY",
+                "position": "Chair",
+        },
+        "ranking_member":{
+            "name": "Puppy Pupperson",
+            "summary": "Puppy from NY",
+            "party_abr": "D",
+            "position": "Ranking Member",
+        },
     }
 
     return render(
