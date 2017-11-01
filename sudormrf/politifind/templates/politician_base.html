@@ -14,16 +14,16 @@
           <div class="row politician-profile">
             <div class="col-xs-4">
               <div class="image-frame">
-                <img src="{{ politician.image_url }}"/>
+                <img src="{{ politician.picture }}"/>
               </div>
             </div>
             <div class="col-xs-8 text-center center-block">
-              <div class="name">{{ politician.name }} ({{ politician.party}})</div>
-              <div class="position">Senator from Vermont</div>
+              <div class="name">{{ politician }}</div>
+              <div class="position">{{ politician.title }} from {{ politician.state }}</div>
               <div class="section-nav">
-                <li><a href={% url 'politician' 12 %}>Home</a></li>
-                <li><a href={% url 'politician' 12 'votes' %}>Votes</a></li>
-                <li><a href={% url 'politician' 12 'bills' %}>Bills</a></li>
+                <li><a href={% url 'politician' politician.pid %}>Home</a></li>
+                <li><a href={% url 'politician' politician.pid 'votes' %}>Votes</a></li>
+                <li><a href={% url 'politician' politician.pid 'bills' %}>Bills</a></li>
               </div>
             </div>
           </div>

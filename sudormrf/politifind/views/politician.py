@@ -1,17 +1,18 @@
 from django.shortcuts import render
+from politifind.models import Politician
 
-
-def politician(request, id, page=None):
-    politician = {
-        "name": "Bernie Sanders",
-        "position": "Senator",
-        "state": "Vermont",
-        "image_url": "https://goo.gl/ZSzSK1",
-        "party": "I",
-        "facebook_handle": "@bernie",
-        "twitter_hanlde": "@bernie",
-        "youtube_handle": "@bernie",
-    }
+def politician(request, pid, page=None):
+    pol = Politician.objects.get(pid=pid)
+    # politician = {
+    #     "name": "Bernie Sanders",
+    #     "position": "Senator",
+    #     "state": "Vermont",
+    #     "image_url": "https://goo.gl/ZSzSK1",
+    #     "party": "I",
+    #     "facebook_handle": "@bernie",
+    #     "twitter_hanlde": "@bernie",
+    #     "youtube_handle": "@bernie",
+    # }
 
     committee_membership = [
         {
@@ -65,7 +66,7 @@ def politician(request, id, page=None):
     ]
 
     context = {
-        'politician': politician,
+        'politician': pol,
         'committee_membership': committee_membership,
         'bill_sponsorship': bill_sponsorship,
         'recent_votes': recent_votes,
