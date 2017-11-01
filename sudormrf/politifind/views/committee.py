@@ -6,12 +6,16 @@ def committee(request, cid, page=None):
     committee = Committee.objects.get(cid=cid)
     page_context = {
         "tabs": [{
-            "name": "Members",
-            "url": reverse('committee', args=[committee.cid]),
+                "name": "Members",
+                "url": reverse('committee', args=[committee.cid]),
             },
             {
-            "name": "Bills",
-            "url": reverse('committee', args=[committee.cid, "bills"]),
+                "name": "Bills",
+                "url": reverse('committee', args=[committee.cid, "bills"]),
+            },
+            {
+                "name": "Subcommittees",
+                "url": reverse('committee', args=[committee.cid, "subcomittees"]),
             }],
         "active_tab": "Members"
     }
@@ -23,6 +27,13 @@ def committee(request, cid, page=None):
             request,
             'committees_bills.html',
             context={"committee":committee, "page":page_context, "bills": bills},
+        )
+    elif page == "subcomittees":
+        page_context["active_tab"] = "Subcommittees"
+        return render(
+            request,
+            'committees_subcommittees.html',
+            context={"committee":committee, "page":page_context},
         )
     else:
         page_context["active_tab"] = "Members"
