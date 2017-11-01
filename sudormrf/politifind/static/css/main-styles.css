@@ -118,3 +118,8 @@ div.navbar-collapse:not(.collapsing):not(.in) form.navbar-form .form-group input
     border-color: black;
     margin-top: 4px;
 }
+
+.page-header-section {
+    background-color: white;
+    margin-bottom: 24px;
+}

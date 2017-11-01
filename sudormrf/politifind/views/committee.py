@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.urls import reverse
-from politifind.models import Committee, CommitteeMembership, BillCommittee
+from politifind.models import Committee, CommitteeMembership, BillCommittee, SubCommittee
 
 def committee(request, cid, page=None):
     committee = Committee.objects.get(cid=cid)
@@ -30,10 +30,12 @@ def committee(request, cid, page=None):
         )
     elif page == "subcomittees":
         page_context["active_tab"] = "Subcommittees"
+        subcommittees = map(lambda x: x, SubCommittee.objects.filter(parent_cid__exact=cid))
+        print subcommittees
         return render(
             request,
             'committees_subcommittees.html',
-            context={"committee":committee, "page":page_context},
+            context={"committee":committee, "page":page_context, "subcommittees":subcommittees},
         )
     else:
         page_context["active_tab"] = "Members"

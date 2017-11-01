@@ -1,5 +1,7 @@
-<div class="panel">
-  <div class="panel-body">
-    {{ bill.code }} | {{ bill.name }} | {{ bill.status }}
+<a href="{% url "bill" bill.bid %}">
+  <div class="panel">
+    <div class="panel-body">
+      {{ bill.code }} | {{ bill.name }} | {{ bill.status }}
+    </div>
   </div>
-</div>
+</a>

@@ -1,16 +1,17 @@
 {% extends "committees_base.html" %}
 
 {% block section_content %}
-<div>
-   _
-</div>
 <div class="row">
-  {% if not bills %}
+  {% if not subcommittees %}
     No subcomittees
   {% endif %}
-  {% for subcomittee in subcomittees %}
+  {% for subcommittee in subcommittees %}
     <div class="col-md-4">
-      {% include "components/bill-summary-card.html"%}
+      <div class="panel">
+        <div class="panel-body">
+          {{ subcommittee.name }}
+        </div>
+      </div>
     </div>
   {% endfor %}
 </div>
