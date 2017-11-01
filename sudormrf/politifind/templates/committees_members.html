@@ -28,17 +28,10 @@
     </div>
     <hr>
   </div>
+  {% for member in members %}
   <div class="col-md-4">
-    {% include "components/politician-summary-card.html" with person=committee.ranking_member_pid %}
+    {% include "components/politician-summary-card.html" with person=member %}
   </div>
-  <div class="col-md-4">
-    {% include "components/politician-summary-card.html" with person=committee.ranking_member_pid %}
-  </div>
-  <div class="col-md-4">
-    {% include "components/politician-summary-card.html" with person=committee.ranking_member_pid %}
-  </div>
-  <div class="col-md-4">
-    {% include "components/politician-summary-card.html" with person=committee.ranking_member_pid %}
-  </div>
+  {% endfor %}
 </div>
 {% endblock %}

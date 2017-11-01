@@ -1,13 +1,17 @@
 {% extends "committees_base.html" %}
 
 {% block section_content %}
-Bills
+<div>
+   _
+</div>
 <div class="row">
-  <div class="col-md-4">
-    {% include "components/politician-summary-card.html" with person=committee.ranking_member_pid %}
-  </div>
-  <div class="col-md-4">
-    {% include "components/bill-summary-card.html"%}
-  </div>
+  {% if not bills %}
+  No bills in this committee currently.  Get notified when there are
+  {% endif %}
+  {% for bill in bills %}
+    <div class="col-md-4">
+      {% include "components/bill-summary-card.html"%}
+    </div>
+  {% endfor %}
 </div>
 {% endblock %}
