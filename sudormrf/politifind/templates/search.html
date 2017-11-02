@@ -7,14 +7,11 @@
 {% endblock %}
 
 {% block page_content %}
-This feature does not work yet
-No results found for {{ query }}
-<div class="container">
-  <div class="row">
-    <div class="col-md-6 col-md-offset-3">
-      {% for result in results %}
-      {% include "components/search-result-card.html" %}
-      {% endfor %}
+
+<div class="top-section">
+  <div class="container">
+    <div class="row" style="text-align:center;">
+      <h1> No results found for {{ query }}</h1>
     </div>
   </div>
 </div>

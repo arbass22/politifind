@@ -1,14 +1,20 @@
 {% extends "base_template.html" %}
 
-{% block page_title %} Bills {% endblock %}
+{% block page_title %} Committees {% endblock %}
 {% block custom_css %}
 {% load static %}
 <link rel='stylesheet' type="text/css" href="{% static 'css/committees-styles.css' %}"></link>
 {% endblock %}
 
 {% block page_content %}
-
-<div class="row">
+<div class="top-section">
+  <div class="container">
+    <div class="row" style="text-align:center;">
+      <h1>Committees</h1>
+    </div>
+  </div>
+</div>
+<div class="container">
   <div class="col-md-6 col-md-offset-3 main-column">
     {% for committee in committees %}
     <div class="panel panel-default">
