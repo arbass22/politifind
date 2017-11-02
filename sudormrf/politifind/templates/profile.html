@@ -65,19 +65,81 @@
           </div>
         </div>
       </form>
-      {% for subscription in user.subscriptions %}
+      {% for subscription in bill_subscriptions %}
       <div class="media">
         <div class="media-left">
           <div style="width:80px;height:80px;">
             {% load staticfiles %}
-            <img class="media-object img-responsive" src="{% ifequal subscription.type 'bill' %}{% static "images/bill-icon-256.png" %}{% endifequal%}"/>
+            <img class="media-object img-responsive" src="{% static "images/bill-icon-256.png" %}"/>
           </div>
         </div>
         <div class="media-body">
           <h4 class="media-heading">
-          {{ subscription.title }}
+          {{ subscription.bid.code }}
           </h4>
-          <p>{{ subscription.description }}</p>
+          <p>{{ subscription.bid.name }}</p>
+        </div>
+        <div class="media-right">
+          <button class="btn btn-default" type="button"><span>&times;</span></button>
+        </div>
+      </div>
+      {% if not forloop.last %}
+      <hr>
+      {% endif %}
+      {% endfor %}
+      {% for subscription in bill_subscriptions %}
+      <div class="media">
+        <div class="media-left">
+          <div style="width:80px;height:80px;">
+            {% load staticfiles %}
+            <img class="media-object img-responsive" src="{% static "images/bill-icon-256.png" %}"/>
+          </div>
+        </div>
+        <div class="media-body">
+          <h4 class="media-heading">
+          {{ subscription.bid.code }}
+          </h4>
+          <p>{{ subscription.bid.name }}</p>
+        </div>
+        <div class="media-right">
+          <button class="btn btn-default" type="button"><span>&times;</span></button>
+        </div>
+      </div>
+      {% if not forloop.last %}
+      <hr>
+      {% endif %}
+      {% endfor %}
+      {% for subscription in politician_subscriptions %}
+      <div class="media">
+        <div class="media-left">
+          <div style="width:80px;height:80px;">
+            <img class="media-object img-responsive" src="https://theunitedstates.io/images/congress/original/{{ subscription.pid.pid }}.jpg"/>
+          </div>
+        </div>
+        <div class="media-body">
+          <h4 class="media-heading">
+          {{ subscription.pid }}
+          </h4>
+        </div>
+        <div class="media-right">
+          <button class="btn btn-default" type="button"><span>&times;</span></button>
+        </div>
+      </div>
+      {% if not forloop.last %}
+      <hr>
+      {% endif %}
+      {% endfor %}
+      {% for subscription in committee_subscriptions %}
+      <div class="media">
+        <div class="media-left">
+          <div style="width:80px;height:80px;">
+            <img class="media-object img-responsive" src="http://placehold.it/150x150"/>
+          </div>
+        </div>
+        <div class="media-body">
+          <h4 class="media-heading">
+          {{ subscription.cid }}
+          </h4>
         </div>
         <div class="media-right">
           <button class="btn btn-default" type="button"><span>&times;</span></button>
