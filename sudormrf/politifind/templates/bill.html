@@ -22,12 +22,7 @@
             <p class="lead">{{ bill.subject }}</p>
           </div>
           <div class="row">
-            <div class="col-sm-offset-2 col-sm-4">
-              <p class="lead">
-                Sponsor: {{ bill.sponsor_pid }}
-              </p>
-            </div>
-            <div class="col-sm-4">
+            <div class="col-sm-6 col-sm-offset-3">
               <p class="lead">
                 Committee(s): {% for committee in bill_committees %} {{ committee.cid }}{% if not forloop.last %}, {% endif %}{% endfor %}
               </p>
@@ -56,6 +51,12 @@
     </div>
   </div>
     <div class="container">
+      <div class="row">
+        <div class="col-sm-offset-4 col-sm-4">
+            Sponsor:
+            {% include "components/politician-summary-card.html" with person=bill.sponsor_pid %}
+        </div>
+      </div>
       <div class="row">
         <div class="col-sm-offset-2 col-sm-8">
           <p class="lead" style="text-align:center;">Summary:</p>

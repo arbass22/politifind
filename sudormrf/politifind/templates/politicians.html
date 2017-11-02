@@ -18,13 +18,7 @@
 <div class="container">
   <div class="col-md-6 col-md-offset-3 main-column">
     {% for politician in politicians %}
-    <div class="panel panel-default">
-      <div class="panel-body">
-        <div>
-          <a href="/politician/{{ politician.pid }}">{{ politician.name }}</span>
-        </div>
-      </div>
-    </div>
+      {% include "components/politician-summary-card.html" with person=politician %}
     {% endfor %}
   </div>
 </div>

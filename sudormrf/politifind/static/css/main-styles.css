@@ -67,6 +67,7 @@ div.navbar-collapse:not(.collapsing):not(.in) form.navbar-form .form-group input
 .person-card .photo img {
     width: 100px;
     height: 100px;
+    object-fit: cover;
 }
 
 .person-card .name {
