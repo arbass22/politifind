@@ -74,6 +74,19 @@ div.navbar-collapse:not(.collapsing):not(.in) form.navbar-form .form-group input
     font-size: 20px;
 }
 
+.person-card a:hover {
+    text-decoration:none;
+    color: black;
+}
+
+.person-card a {
+    color: black;
+}
+
+.person-card:hover {
+    background-color: #f4f4f4;
+}
+
 .person-card .summary {
     font-size: 14px;
 }
