@@ -1,6 +1,6 @@
 {% extends "base_template.html" %}
 
-{% block page_title %} Politician {% endblock %}
+{% block page_title %} {{ politician.title }} {{ politician.name }} ({{ politician.party }}) {% endblock %}
 {% block custom_css %}
 {% load static %}
 <link rel='stylesheet' type="text/css" href="{% static 'css/politician-styles.css' %}"></link>

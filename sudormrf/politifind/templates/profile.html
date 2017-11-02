@@ -1,6 +1,6 @@
 {% extends "base_template.html" %}
 
-{% block page_title %} Edit Profile {% endblock %}
+{% block page_title %} Edit Profile - {{ user.username }} {% endblock %}
 {% block custom_css %}
 {% load static %}
 <link rel='stylesheet' type="text/css" href="{% static 'css/profile-styles.css' %}"></link>

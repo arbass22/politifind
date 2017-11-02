@@ -1,6 +1,6 @@
 {% extends "base_template.html" %}
 
-{% block page_title %} Committees {% endblock %}
+{% block page_title %} {{ committee.name }} {% endblock %}
 {% block custom_css %}
 {% load static %}
 <link rel='stylesheet' type="text/css" href="{% static 'css/committees-styles.css' %}"></link>

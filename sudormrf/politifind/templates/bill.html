@@ -1,6 +1,6 @@
 {% extends "base_template.html" %}
 
-{% block page_title %} Bill {% endblock %}
+{% block page_title %} {{ bill.code }}: {{ bill.name }} {% endblock %}
 {% block custom_css %}
 {% load static %}
 <link rel='stylesheet' type="text/css" href="{% static 'css/bill-styles.css' %}"></link>
@@ -14,8 +14,9 @@
           <div class="row">
             <h1>
               <span class="glyphicon glyphicon-{% if bill.passed %}ok{% else %}remove{% endif %}-sign" aria-hidden="true"></span>
-              {{ bill }}
+              {{ bill.code }}
             </h1>
+            <h1>{{ bill.name }}</h1>
           </div>
           <div class="row">
             <p class="lead">{{ bill.subject }}</p>
