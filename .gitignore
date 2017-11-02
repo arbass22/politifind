@@ -3,4 +3,8 @@
 .DS_Store
 node_modules/
 sudormrf/politifind/migrations
+writeups/*.aux
+writeups/*.log
+writeups/*.synctex.gz
+writeups/*.out
 .cache
