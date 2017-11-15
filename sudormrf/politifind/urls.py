@@ -1,6 +1,7 @@
 from django.conf.urls import url
 
 from . import views
+from django.conf.urls import include
 
 urlpatterns = [
     url(r'^$', views.index, name='index'),
@@ -12,5 +13,6 @@ urlpatterns = [
     url(r'^committees/$', views.committees, name='committees'),
     url(r'^profile/$', views.profile, name='profile'),
     url(r'^search/', views.search, name='search'),
+    url(r'^accounts/', include('django.contrib.auth.urls')),
 
 ]

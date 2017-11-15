@@ -4,7 +4,7 @@ from politifind.models import Bill, BillCommittee, BillAction, PoliticianVote
 
 def bill(request, bid):
     bill = Bill.objects.get(bid=bid)
-    print bill.sponsor_pid.pid
+#    print bill.sponsor_pid.pid
     all_bills = Bill.objects.all()
     i = randrange(0, len(all_bills))
     similar_bills = all_bills[i:i+3]
