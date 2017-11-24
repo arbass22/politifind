@@ -2,9 +2,9 @@ from django.contrib import admin
 
 # Register your models here.
 
-from .models import User, Politician, Bill, PoliticianVote, UserVote, Committee, SubCommittee, CommitteeMembership, BillCommittee, BillSponsorship, BillAction, UserPoliticianSubscription, UserBillSubscription, UserCommitteeSubscription
+from .models import Profile, Politician, Bill, PoliticianVote, UserVote, Committee, SubCommittee, CommitteeMembership, BillCommittee, BillSponsorship, BillAction, UserPoliticianSubscription, UserBillSubscription, UserCommitteeSubscription
 
-admin.site.register(User)
+admin.site.register(Profile)
 admin.site.register(Politician)
 admin.site.register(Bill)
 admin.site.register(PoliticianVote)
