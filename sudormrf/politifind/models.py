@@ -114,6 +114,7 @@ class Committee(models.Model):
     name = models.CharField(max_length=200, help_text="Enter the name of this committee")
     chair = models.ForeignKey('Politician', related_name='chair', help_text="Enter the chair", null=True)
     ranking_member = models.ForeignKey('Politician', related_name='ranking_member', help_text="Enter the ranking member")
+    chamber = models.CharField(max_length=20, null=True)
 
     def __str__(self):
         """

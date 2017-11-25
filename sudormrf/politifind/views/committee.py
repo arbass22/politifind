@@ -30,7 +30,7 @@ def committee(request, cid, page=None):
         )
     elif page == "subcomittees":
         page_context["active_tab"] = "Subcommittees"
-        subcommittees = map(lambda x: x, SubCommittee.objects.filter(parent_cid__exact=cid))
+        subcommittees = SubCommittee.objects.filter(parent=committee)
         return render(
             request,
             'committees_subcommittees.html',
@@ -38,7 +38,7 @@ def committee(request, cid, page=None):
         )
     else:
         page_context["active_tab"] = "Members"
-        members = map(lambda x: x.pid, CommitteeMembership.objects.filter(cid__exact=cid))
+        members = map(lambda cm: cm.politician, CommitteeMembership.objects.filter(committee=committee))
         return render(
             request,
             'committees_members.html',

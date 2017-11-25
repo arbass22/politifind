@@ -8,9 +8,12 @@ def bill(request, bid):
     all_bills = Bill.objects.all()
     i = randrange(0, len(all_bills))
     similar_bills = all_bills[i:i+3]
-    bill_committees = BillCommittee.objects.filter(bid__exact=bid)
-    bill_actions = BillAction.objects.filter(bid__exact=bid)
-    votes = PoliticianVote.objects.filter(bid__exact=bid)
+    bill_committees = []
+    # bill_committees = BillCommittee.objects.filter(bid__exact=bid)
+    # bill_actions = BillAction.objects.filter(bid__exact=bid)
+    # votes = PoliticianVote.objects.filter(bid__exact=bid)
+    votes = []
+    bill_actions = []
     yay = 0
     nay = 0
     for v in votes:
