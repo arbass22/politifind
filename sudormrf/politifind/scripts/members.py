@@ -7,5 +7,5 @@ def run():
     senate = requests.get('https://api.propublica.org/congress/v1/115/senate/members.json', headers=api_header).json().get('results')[0].get('members')
     politicians = house + senate
     for p in politicians:
-        new_politician = Politician(pid=p.get('id'), name=p.get('first_name')+' '+p.get('last_name'), party=p.get('party'), picture="https://placehold.it/150x150", state=p.get('state'), title=p.get('title'), twitter=p.get('twitter_account'), facebook=p.get('facebook_account'), youtube=p.get('youtube_account'), dob=p.get('date_of_birth'))
+        new_politician = Politician(pid=p.get('id'), name=p.get('first_name')+' '+p.get('last_name'), party=p.get('party'), picture="https://theunitedstates.io/images/congress/original/"+p.get('id')+'.jpg', state=p.get('state'), title=p.get('title'), twitter=p.get('twitter_account'), facebook=p.get('facebook_account'), youtube=p.get('youtube_account'), dob=p.get('date_of_birth'), missed_votes_pct=p.get('missed_votes_pct'), votes_with_party_pct=p.get('votes_with_party_pct'))
         new_politician.save()

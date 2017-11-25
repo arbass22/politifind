@@ -35,6 +35,8 @@ class Politician(models.Model):
     facebook = models.CharField(max_length=200, null=True, help_text="Enter the url of the member's facebook profile")
     youtube = models.CharField(max_length=200, null=True, help_text="Enter the url of the member's youtube profile")
     dob = models.DateField(help_text="Enter the date of birth of this member")
+    missed_votes_pct = models.FloatField(null=True, help_text="Enter the percentage of missed votes")
+    votes_with_party_pct = models.FloatField(null=True, help_text="Enter the percentage of votes with party")
 
     def __str__(self):
         """
