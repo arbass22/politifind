@@ -9,8 +9,7 @@ def run():
     for c in committees:
         for s in c.get('subcommittees'):
             try:
-                new_sc = SubCommittee(sid=s.get('id'), name=s.get('name'), parent_cid=Committee.objects.get(cid=c.get('cid')))
+                new_sc = SubCommittee(sid=s.get('id'), name=s.get('name'), parent=Committee.objects.get(cid=c.get('cid')))
                 new_sc.save()
             except Exception:
                 pass
-
