@@ -4,9 +4,8 @@ from politifind.models import Politician, PoliticianVote, CommitteeMembership, B
 
 def politician(request, pid, page=None):
     politician = Politician.objects.get(pid=pid)
-    recent_votes = []
     bill_sponsorship = map(lambda bs: bs.bill, BillSponsorship.objects.filter(politician=politician))
-    # recent_votes = PoliticianVote.objects.filter(pid__exact=pid)[:5]
+    recent_votes = PoliticianVote.objects.filter(politician=politician)[:25]
     committee_membership = map(lambda cm: cm.committee, CommitteeMembership.objects.filter(politician=politician))
 
     page_context = {

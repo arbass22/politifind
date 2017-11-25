@@ -4,8 +4,11 @@ This card is used to show how a certain politician voted on a bill
 
 <div class="col-sm-4 politician-vote-card">
   <div class="panel panel-default">
+    <div class="panel-heading">
+      {{ vote.date_voted }}
+    </div>
     <div class="panel-body">
-      {{ vote.date_voted }}: {{ vote.vote }} on {{ vote.bid }}
+      <strong>{{ vote.vote }}</strong> on {{ vote.bill }}
     </div>
   </div>
 </div>
