@@ -57,6 +57,8 @@ class Bill(models.Model):
     latest_action_date = models.DateField(help_text="Enter the date of the most recent action of the bill")
     latest_action = models.CharField(max_length=200, help_text="Enter the latest action of the bill")
     sponsor = models.ForeignKey('Politician', help_text="Enter the bill's sponsor", null=True)
+    total_yes = models.IntegerField(null=True, help_text='Enter the number of yes votes')
+    total_no = models.IntegerField(null=True, help_text='Enter the number of no votes')
 
     def __str__(self):
         """
@@ -144,7 +146,6 @@ class BillCommittee(models.Model):
     """
     bill = models.ForeignKey('Bill', help_text="Enter the bill")
     committee = models.ForeignKey('Committee', help_text="Enter the committee")
-    subcommittee = models.ForeignKey('SubCommittee', help_text="Enter the subcommittee")
 
 #####################
 
@@ -164,7 +165,7 @@ class BillAction(models.Model):
     Model representing an action on a bill
     """
     bill = models.ForeignKey('Bill', help_text="Enter the id of the bill")
-    action = models.CharField(max_length=50, help_text="Enter the action on the bill")
+    action = models.CharField(max_length=200, help_text="Enter the action on the bill")
     action_date = models.DateField(help_text="Enter the date of the action")
 
 #####################
