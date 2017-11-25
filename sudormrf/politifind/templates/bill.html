@@ -69,20 +69,24 @@
       <div class="row">
         <div class="col-sm-offset-2 col-sm-8">
           <p class="lead" style="text-align:center;">Votes:</p>
-          {% if 'congress' in votes %}
+
           <div class="panel panel-default">
             <div class="panel-heading" style="text-align:center;">
               <h2 class="panel-title">Congress</h2>
             </div>
+
             <div class="panel-body">
+              {% if 'congress' in votes %}
               <div class="progress">
                 <div class="progress-bar progress-bar-success {% if votes.congress.total_yes > votes.congress.total_no %}progress-bar-striped active{% endif %}" style="width: {% widthratio votes.congress.total_yes votes.congress.total 100 %}%;">Yea</div>
                 <div class="progress-bar progress-bar-danger {% if votes.congress.total_no > votes.congress.total_yes %}progress-bar-striped active{% endif %}" style="width: {% widthratio votes.congress.total_no votes.congress.total 100 %}%;">Nay</div>
                 <div class="progress-bar" style="width: {% widthratio votes.congress.total_not_voting votes.congress.total 100 %}%;">No Vote</div>
               </div>
+              {% else %}
+              <div class="text-center">No Congressional vote yet</div>
+              {% endif %}
             </div>
           </div>
-          {% endif %}
           {% if 'users' in votes %}
           <div class="panel panel-default">
             <div class="panel-heading" style="text-align:center;">
