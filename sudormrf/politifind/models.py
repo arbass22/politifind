@@ -81,12 +81,6 @@ class PoliticianVote(models.Model):
     vote = models.CharField(max_length=15, help_text="Enter how the politician voted on this bill")
     date_voted = models.DateField(help_text="Enter the date of the politician's vote")
 
-    def __str__(self):
-        """
-        String representation of a vote
-        """
-        return '%s: Politician %s voted %s on bill %s' % (self.pid, self.bid, self.vote, self.date_voted)
-
 class UserVote(models.Model):
     """
     Model representing a given User's vote on a certain Bill
@@ -95,12 +89,6 @@ class UserVote(models.Model):
     bill = models.ForeignKey('Bill', help_text="Enter the id of the bill being voted on")
     vote = models.CharField(max_length=15, help_text="Enter how the user voted on this bill")
     date_voted = models.DateField(help_text="Enter the date of the user's vote")
-
-    def __str__(self):
-        """
-        String representation of a vote
-        """
-        return '%s: User %s voted %s on bill %s' % (self.uid, self.bid, self.vote, self.date_voted)
 
 #####################
 
