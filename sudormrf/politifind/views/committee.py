@@ -22,7 +22,7 @@ def committee(request, cid, page=None):
 
     if page == "bills":
         page_context["active_tab"] = "Bills"
-        bills = map(lambda x: x.bid, BillCommittee.objects.filter(cid__exact=cid))
+        bills = map(lambda bc: bc.bill, BillCommittee.objects.filter(committee_id=cid))
         return render(
             request,
             'committees_bills.html',
