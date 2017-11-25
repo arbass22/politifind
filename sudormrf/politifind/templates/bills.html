@@ -16,6 +16,24 @@
   </div>
 </div>
 <div class="container">
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2">
+      <ul class="pager">
+        {% if bills.has_previous %}
+        <li class="previous"><a href="?page={{ bills.previous_page_number }}"><span aria-hidden="true">&larr;</span> Previous</a></li>
+        {% endif %}
+        <li>
+          Page {{ bills.number }} of {{ bills.paginator.num_pages }}
+        </li>
+        {% if bills.has_next %}
+        <li class="next"><a href="?page={{ bills.next_page_number }}">Next <span aria-hidden="true">&rarr;</span></a></li>
+        {% endif %}
+      </ul>
+    </div>
+  </div>
+  <div class="row">
+
+  </div>
   <div class="col-md-6 col-md-offset-3 main-column">
     {% for bill in bills %}
     <div class="panel panel-default">

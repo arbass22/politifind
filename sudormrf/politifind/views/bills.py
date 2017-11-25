@@ -1,9 +1,18 @@
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.shortcuts import render
 from politifind.models import Bill
-import unidecode
 
 def bills(request):
-    bills = Bill.objects.all()
+    bills_list = Bill.objects.all()
+    paginator = Paginator(bills_list, 25)
+
+    page = request.GET.get('page')
+    try:
+        bills = paginator.page(page)
+    except PageNotAnInteger:
+        bills = paginator.page(1)
+    except EmptyPage:
+        bills = paginator.page(paginator.num_pages)
 
     return render(
         request,
