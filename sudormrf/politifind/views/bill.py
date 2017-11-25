@@ -4,33 +4,21 @@ from politifind.models import Bill, BillCommittee, BillAction, PoliticianVote
 
 def bill(request, bid):
     bill = Bill.objects.get(bid=bid)
-#    print bill.sponsor_pid.pid
     all_bills = Bill.objects.all()
     i = randrange(0, len(all_bills))
     similar_bills = all_bills[i:i+3]
-    bill_committees = []
-    # bill_committees = BillCommittee.objects.filter(bid__exact=bid)
-    # bill_actions = BillAction.objects.filter(bid__exact=bid)
-    # votes = PoliticianVote.objects.filter(bid__exact=bid)
-    votes = []
-    bill_actions = []
-    yay = 0
-    nay = 0
-    for v in votes:
-        if v.vote == 'YAY':
-            yay += 1
-        else:
-            nay += 1
+    bill_committees = BillCommittee.objects.filter(bill=bill)
+    bill_actions = BillAction.objects.filter(bill=bill)
+    yay = bill.total_yes
+    nay = bill.total_no
 
     votes = {
         'congress': {
-            'date': 'November 15, 2017',
-            'total': len(votes),
+            'total': yay+nay,
             'total_yes': yay,
             'total_no': nay
         },
         'users': {
-            'date': 'November 14, 2017',
             'total': 100,
             'total_yes': 70,
             'total_no': 30
