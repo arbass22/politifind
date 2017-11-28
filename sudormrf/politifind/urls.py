@@ -17,4 +17,5 @@ urlpatterns = [
     url(r'^vote/(.*)/(yay|nay)*/', views.vote, name='vote'),
     url(r'^subscribe/$', views.subscribe, name='subscribe'),
     url(r'^unsubscribe/$', views.unsubscribe, name='unsubscribe'),
+    url(r'^profile/update/', views.profile_update, name='profile_update'),
 ]

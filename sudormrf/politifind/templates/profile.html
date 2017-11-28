@@ -13,7 +13,7 @@
     <div class="row">
       <div class="col-sm-offset-3 col-sm-2 text-center">
           <img src="{{ user.picture }}" class="img-responsive img-rounded profile-picture">
-          <label class="btn btn-primary" type="file">Change Picture</button>
+          <!-- <label class="btn btn-primary" type="file">Change Picture</button> -->
       </div>
       <div class="col-sm-7 profile-text">
         <h1>{{ user }}</h1>
@@ -26,34 +26,26 @@
   <div class="col-sm-offset-2 col-sm-8">
   <div class="panel panel-default">
     <div class="panel-body">
-      <form>
+      <form action="{% url 'profile_update' %}" method="post">{% csrf_token %}
         <div class="form-group">
+          <div class="form-group">
+            <label for="party">Policital Party</label>
+            <select name="party" class="form-control">
+              <option {% ifequal user.party "Democrat" %}selected="selected"{% endifequal %}>Democrat</option>
+              <option {% ifequal user.party "Republican" %}selected="selected"{% endifequal %}>Republican</option>
+              <option {% ifequal user.party "Independent" %}selected="selected"{% endifequal %}>Independent</option>
+              <option {% ifequal user.party "Green Party" %}selected="selected"{% endifequal %}>Green Party</option>
+              <option {% ifequal user.party "Libertarian" %}selected="selected"{% endifequal %}>Libertarian</option>
+              <option {% ifequal user.party "Other" %}selected="selected"{% endifequal %}>Other</option>
+              </select>
+            </div>
           <label for="email">Email</label>
-          <div class="input-group">
-            <input type="email" class="form-control" id="email" value="{{ user.email }}">
-            <span class="input-group-btn">
-	      <button class="btn btn-default" type="button">Save</button>
-            </span>
-          </div>
+          <input type="email" name="email" class="form-control" id="email" value="{{ user.email }}">
+          <hr />
+          <button class="btn btn-default" type="submit">Save</button>
         </div>
       </form>
-      <button class="btn btn-primary password-btn" type="button" data-toggle="modal" data-target="#passwordModal">Change Password</button>
-    </div>
-  </div>
-  <div class="panel panel-default">
-    <div class="panel-body">
-      <div class="form-group">
-        <label for="party">Policital Party</label>
-        <select class="form-control">
-          <option {% ifequal user.party "Democrat" %}selected="selected"{% endifequal %}>Democrat</option>
-          <option {% ifequal user.party "Republican" %}selected="selected"{% endifequal %}>Republican</option>
-          <option {% ifequal user.party "Independent" %}selected="selected"{% endifequal %}>Independent</option>
-          <option {% ifequal user.party "Green Party" %}selected="selected"{% endifequal %}>Green Party</option>
-          <option {% ifequal user.party "Libertarian" %}selected="selected"{% endifequal %}>Libertarian</option>
-          <option {% ifequal user.party "Other" %}selected="selected"{% endifequal %}>Other</option>
-          </select>
-        </div>
-      </form>
+      <!-- <button class="btn btn-primary password-btn" type="button" data-toggle="modal" data-target="#passwordModal">Change Password</button> -->
     </div>
   </div>
   <div class="panel panel-default">

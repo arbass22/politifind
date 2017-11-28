@@ -9,3 +9,4 @@ from .profile import profile
 from .search import search
 from .vote import vote
 from .subscribe import subscribe, unsubscribe
+from .profile_update import profile_update
