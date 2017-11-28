@@ -8,3 +8,4 @@ from .committee import committee
 from .profile import profile
 from .search import search
 from .vote import vote
+from .subscribe import subscribe

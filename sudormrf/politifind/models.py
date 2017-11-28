@@ -175,15 +175,15 @@ class UserBillSubscription(models.Model):
     """
     Model representing a user subscribing to a bill
     """
-    user = models.ForeignKey('Profile', help_text="Enter the id of the voting user")
-    bill = models.ForeignKey('Bill', help_text="Enter the id of the bill being voted on")
+    user = models.ForeignKey('Profile', help_text="Enter the subscribing user")
+    bill = models.ForeignKey('Bill', help_text="Enter the id of the subscribed bill")
     date_subscribed = models.DateField(help_text="Enter the date that the user subscribed to this bill")
 
 class UserCommitteeSubscription(models.Model):
     """
     Model representing a user subscribing to a committee
     """
-    user = models.ForeignKey('Profile', help_text="Enter the id of the voting user")
+    user = models.ForeignKey('Profile', help_text="Enter the subscribing user")
     committee = models.ForeignKey('Committee', help_text="Enter the id of the committee")
     date_subscribed = models.DateField(help_text="Enter the date that the user subscribed to this committee")
 
