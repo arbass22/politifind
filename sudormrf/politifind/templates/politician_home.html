@@ -51,9 +51,11 @@
         </div>
         <hr>
         {% for bill in bill_sponsorship %}
-        <div>
-          <span><strong>{{ bill.code }}</strong>: {{ bill.name }}</span>
-        </div>
+          <a href="{% url 'bill' bill.bid %}">
+            <div>
+              <span><strong>{{ bill.code }}</strong>: {{ bill.name }}</span>
+            </div>
+          </a>
         {% endfor %}
       </div>
     </div>
