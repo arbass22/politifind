@@ -1,13 +1,19 @@
 from django.shortcuts import render
 from django.urls import reverse
-from politifind.models import Politician, PoliticianVote, CommitteeMembership, BillSponsorship
+from politifind.models import Politician, PoliticianVote, CommitteeMembership, BillSponsorship, UserPoliticianSubscription, Profile
 
 def politician(request, pid, page=None):
     politician = Politician.objects.get(pid=pid)
+    
+    is_subscribed = False
+    if request.user.is_authenticated:    
+        user = Profile.objects.filter(user=request.user)[0]
+        if len(UserPoliticianSubscription.objects.filter(politician=politician, user=user)) > 0:
+            is_subscribed = True
+    
     bill_sponsorship = map(lambda bs: bs.bill, BillSponsorship.objects.filter(politician=politician))
     recent_votes = PoliticianVote.objects.filter(politician=politician)[:25]
     committee_membership = map(lambda cm: cm.committee, CommitteeMembership.objects.filter(politician=politician))
-
     page_context = {
         "tabs": [{
             "name": "Home",
@@ -29,6 +35,7 @@ def politician(request, pid, page=None):
         'bill_sponsorship': bill_sponsorship,
         'recent_votes': recent_votes,
         'page': page_context,
+        'is_subscribed': is_subscribed
     }
 
 
