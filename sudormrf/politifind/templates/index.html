@@ -13,37 +13,52 @@
 <div class="container">
   <div class="row">
     <div class="col-md-8">
+      {% if user.is_authenticated %}
+      {% for bill_subscription in user_bill %}
+      {% if forloop.first %}
       <div class="row">
         <div class="col-md-12">
           <div class="panel panel-primary">
-            {% if user.is_authenticated %}
             <div class="panel-heading">
               <h3 class="panel-title"><span class="glyphicon glyphicon-flash"></span>&nbsp;Your Bill Subscriptions</h3>
             </div>
             <div class="panel-body list-group">
-              {% for bill_subscription in user_bill %}
+      {% endif %}
               <a class="list-group-item" href="{% url 'bill' bill_subscription.bill.bid %}">
                 <h4 class="list-group-item-heading">{{bill_subscription.bill.code}}</h4>
                 <p class="list-group-item-text">{{bill_subscription.bill.name}}</p>
               </a>
-              {% endfor %}
+      {% if forloop.last %}
             </div>
-            {% else %}
+          </div>
+        </div>
+      </div>
+      {% endif %}
+      {% endfor %}
+      {% endif %}
+      {% if not user.is_authenticated %}
+      {% for bill in recent_bill_news %}
+      {% if forloop.first %}
+      <div class="row">
+        <div class="col-md-12">
+          <div class="panel panel-primary">
             <div class="panel-heading">
-              <h3 class="panel-title"><span class="glyphicon glyphicon-flash"></span>&nbsp;Recent Bills</h3>
+              <h3 class="panel-title"><span class="glyphicon glyphicon-flash"></span>&nbsp;Your Bill Subscriptions</h3>
             </div>
             <div class="panel-body list-group">
-              {% for bill in recent_bill_news %}
+      {% endif %}
               <a class="list-group-item" href="{% url 'bill' bill.bid %}">
                 <h4 class="list-group-item-heading">{{bill.code}}</h4>
                 <p class="list-group-item-text">{{bill.name}}</p>
               </a>
-              {% endfor %}
+      {% if forloop.last %}
             </div>
-            {% endif %}
           </div>
         </div>
       </div>
+      {% endif %}
+      {% endfor %}
+      {% endif %}
       {% if user.is_authenticated %}
       {% for sub_pol in user_politician %}
       {% if forloop.first %}
