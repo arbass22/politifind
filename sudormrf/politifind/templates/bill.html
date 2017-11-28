@@ -33,14 +33,18 @@
           </div>
           <div class="row">
             <div class="col-sm-offset-4 col-sm-4">
+              {% if already_voted %}
+              <p class="lead">You voted {{ user_vote }}!</p>
+              {% else %}
               <div class="btn-group btn-group-justified" role="group">
                 <div class="btn-group">
-                  <button type="button" class="btn btn-default yea-btn">Yea</button>
+                  <button type="button" class="btn btn-default yea-btn" {% if user.is_authenticated %} data-toggle="modal" data-target="#yayModal" {% endif %}>Yay</button>
                 </div>
                 <div class="btn-group">
-                  <button type="button" class="btn btn-default nay-btn">Nay</button>
+                  <button type="button" class="btn btn-default nay-btn" {% if user.is_authenticated %} data-toggle="modal" data-target="#nayModal" {% endif %}>Nay</button>
                 </div>
               </div>
+              {% endif %}
             </div>
           </div>
           <div class="row" style="margin-top:20px;">
@@ -78,7 +82,7 @@
             <div class="panel-body">
               {% if 'congress' in votes %}
               <div class="progress">
-                <div class="progress-bar progress-bar-success {% if votes.congress.total_yes > votes.congress.total_no %}progress-bar-striped active{% endif %}" style="width: {% widthratio votes.congress.total_yes votes.congress.total 100 %}%;">Yea</div>
+                <div class="progress-bar progress-bar-success {% if votes.congress.total_yes > votes.congress.total_no %}progress-bar-striped active{% endif %}" style="width: {% widthratio votes.congress.total_yes votes.congress.total 100 %}%;">Yay</div>
                 <div class="progress-bar progress-bar-danger {% if votes.congress.total_no > votes.congress.total_yes %}progress-bar-striped active{% endif %}" style="width: {% widthratio votes.congress.total_no votes.congress.total 100 %}%;">Nay</div>
                 <div class="progress-bar" style="width: {% widthratio votes.congress.total_not_voting votes.congress.total 100 %}%;">No Vote</div>
               </div>
@@ -93,10 +97,14 @@
               <h2 class="panel-title">Politifind Users</h2>
             </div>
             <div class="panel-body">
+              {% if votes.users.total > 0 %}
               <div class="progress">
-                <div class="progress-bar progress-bar-success {% if votes.users.total_yes > votes.users.total_no %}progress-bar-striped active{% endif %}" style="width: {% widthratio votes.users.total_yes votes.users.total 100 %}%;">Yea</div>
+                <div class="progress-bar progress-bar-success {% if votes.users.total_yes > votes.users.total_no %}progress-bar-striped active{% endif %}" style="width: {% widthratio votes.users.total_yes votes.users.total 100 %}%;">Yay</div>
                 <div class="progress-bar progress-bar-danger {% if votes.users.total_no > votes.users.total_yes %}progress-bar-striped active{% endif %}" style="width: {% widthratio votes.users.total_no votes.users.total 100 %}%;">Nay</div>
               </div>
+              {% else %}
+              <div class="text-center">No User votes yet</div>
+              {% endif %}
             </div>
           </div>
           {% endif %}
@@ -143,6 +151,46 @@
             </div>
           </div>
         {% endfor %}
+      </div>
+    </div>
+    <div id="yayModal" class="modal fade" tabindex="-1">
+      <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+          <div class="modal-body">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title text-center" style="margin-bottom: 10px;">Vote Yay</h4>
+            <form action="{% url 'vote' bill.bid 'yay' %}" method="post">{% csrf_token %}
+              <div class="form-group">
+                <label for="comment">Optional Comment</label>
+                <textarea id="comment" class="form-control" rows="3" name="comment"></textarea>
+              </div>
+              <div class="text-center">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary">Vote</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="nayModal" class="modal fade" tabindex="-1">
+      <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+          <div class="modal-body">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title text-center" style="margin-bottom: 10px;">Vote Nay</h4>
+            <form action="{% url 'vote' bill.bid 'nay' %}" method="post">{% csrf_token %}
+              <div class="form-group">
+                <label for="comment">Optional Comment</label>
+                <textarea id="comment" class="form-control" rows="3" name="comment"></textarea>
+              </div>
+              <div class="text-center">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary">Vote</button>
+              </div>
+            </form>
+          </div>
+        </div>
       </div>
     </div>
 
