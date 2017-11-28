@@ -54,17 +54,11 @@
           </select>
         </div>
       </form>
-      <form class="subscription-form">
-        <div class="form-group">
-          <label for="subscriptions">Subscriptions</label>
-          <div class="input-group">
-            <input class="form-control" placeholder="Search politicians, etc..." type="search"></input>
-            <span class="input-group-btn">
-              <button class="btn btn-default" type="button" name="button">Subscribe</button>
-            </span>
-          </div>
-        </div>
-      </form>
+    </div>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-body">
+      <label>Subscriptions</label>
       {% for subscription in bill_subscriptions %}
       <div class="media">
         <div class="media-left">
@@ -75,34 +69,9 @@
         </div>
         <div class="media-body">
           <h4 class="media-heading">
-          {{ subscription.bid.code }}
+          {{ subscription.bill.code }}
           </h4>
-          <p>{{ subscription.bid.name }}</p>
-        </div>
-        <div class="media-right">
-          <button class="btn btn-default" type="button"><span>&times;</span></button>
-        </div>
-      </div>
-      {% if not forloop.last %}
-      <hr>
-      {% endif %}
-      {% endfor %}
-      {% for subscription in bill_subscriptions %}
-      <div class="media">
-        <div class="media-left">
-          <div style="width:80px;height:80px;">
-            {% load staticfiles %}
-            <img class="media-object img-responsive" src="{% static "images/bill-icon-256.png" %}"/>
-          </div>
-        </div>
-        <div class="media-body">
-          <h4 class="media-heading">
-          {{ subscription.bid.code }}
-          </h4>
-          <p>{{ subscription.bid.name }}</p>
-        </div>
-        <div class="media-right">
-          <button class="btn btn-default" type="button"><span>&times;</span></button>
+          <p>{{ subscription.bill.name }}</p>
         </div>
       </div>
       {% if not forloop.last %}
@@ -113,16 +82,13 @@
       <div class="media">
         <div class="media-left">
           <div style="width:80px;height:80px;">
-            <img class="media-object img-responsive" src="https://theunitedstates.io/images/congress/original/{{ subscription.pid.pid }}.jpg"/>
+            <img class="media-object img-responsive" src="{{subscription.politician.picture}}"/>
           </div>
         </div>
         <div class="media-body">
           <h4 class="media-heading">
-          {{ subscription.pid }}
+          {{ subscription.politician }}
           </h4>
-        </div>
-        <div class="media-right">
-          <button class="btn btn-default" type="button"><span>&times;</span></button>
         </div>
       </div>
       {% if not forloop.last %}
@@ -133,16 +99,13 @@
       <div class="media">
         <div class="media-left">
           <div style="width:80px;height:80px;">
-            <img class="media-object img-responsive" src="http://placehold.it/150x150"/>
+            <img class="media-object img-responsive" src="https://images.c-span.org/Files/cad/20170926103920003_hd.jpg/Thumbs/height.200.no_border.width.200.jpg"/>
           </div>
         </div>
         <div class="media-body">
           <h4 class="media-heading">
-          {{ subscription.cid }}
+          {{ subscription.committee }}
           </h4>
-        </div>
-        <div class="media-right">
-          <button class="btn btn-default" type="button"><span>&times;</span></button>
         </div>
       </div>
       {% if not forloop.last %}
@@ -150,7 +113,6 @@
       {% endif %}
       {% endfor %}
     </div>
-  </div>
   </div>
 </div>
 <div class="modal fade" id="passwordModal" tabindex="-1" role="dialog">
