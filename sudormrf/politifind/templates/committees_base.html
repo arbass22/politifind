@@ -14,7 +14,7 @@
       <div class="description">
         {{ committee.description }}
       </div>
-      {% include "components/subscribe-button.html" with subscribed=False%}
+      {% include "components/subscribe-button.html" with id=committee.cid is_subscribed=is_subscribed type="committee" %}
       <!-- <div>
         Partisan Makeup
       </div>
