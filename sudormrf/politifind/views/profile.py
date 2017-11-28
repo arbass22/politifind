@@ -1,9 +1,11 @@
 from random import randrange
 from itertools import chain
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from politifind.models import Profile, UserBillSubscription, UserCommitteeSubscription, UserPoliticianSubscription
 
 def profile(request):
+    if not request.user.is_authenticated:
+        return redirect('login')
     user = Profile.objects.get(user=request.user)
     bill_subscriptions = UserBillSubscription.objects.filter(user=user)
     committee_subscriptions = UserCommitteeSubscription.objects.filter(user=user)
