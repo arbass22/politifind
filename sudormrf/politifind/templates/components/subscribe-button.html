@@ -1,9 +1,15 @@
-<div class="subscribe {% if is_subscribed %} subscribed {% endif %}">
-  <span class="glyphicon glyphicon-bell" aria-hidden="true"></span>
-</div>
+<a class="subscribe-tooltip" 
+  href=# data-toggle="tooltip" 
+  title="{% if is_subscribed %} Unsubscribe {% else %} Subscribe {% endif %}" 
+  data-placement="right">
+  <div class="subscribe {% if is_subscribed %} subscribed {% endif %}">
+    <span class="glyphicon glyphicon-bell" aria-hidden="true"></span>
+  </div>
+</a>
 <script>
   var subButton = $('.subscribe');
-  // var isSubscribed = subButton.hasClass('subscribed');
+  var tooltip = $('.subscribe-tooltip');
+
   subButton.click(function() {
     if (!subButton.hasClass('subscribed')) {
       // User is not subscribed
@@ -13,6 +19,9 @@
         id: "{{ id }}",
       }, function() {
         subButton.addClass("subscribed");
+        tooltip.tooltip('hide');
+        tooltip.attr('title', 'Unsubscribe')
+          .tooltip('fixTitle')
       });
     } else {
       $.post("/unsubscribe/", {
@@ -21,9 +30,17 @@
         id: "{{ id }}",
       }, function() {
         subButton.removeClass("subscribed");
+        tooltip.tooltip('hide');
+        tooltip.attr('title', 'Subscribe')
+          .tooltip('fixTitle')
       });
       
     }
   });
+  
+  tooltip.tooltip({
+     'delay': { show: 0, hide: 0 },
+     'trigger': 'hover',
+   });
   
 </script>
