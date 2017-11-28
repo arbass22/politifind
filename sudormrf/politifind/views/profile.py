@@ -1,14 +1,13 @@
 from random import randrange
 from itertools import chain
 from django.shortcuts import render
-from politifind.models import User, UserBillSubscription, UserCommitteeSubscription, UserPoliticianSubscription
+from politifind.models import Profile, UserBillSubscription, UserCommitteeSubscription, UserPoliticianSubscription
 
 def profile(request):
-    users = User.objects.all()
-    user = users[randrange(0,len(users))]
-    bill_subscriptions = UserBillSubscription.objects.filter(uid__exact=user)
-    committee_subscriptions = UserCommitteeSubscription.objects.filter(uid__exact=user)
-    politician_subscriptions = UserPoliticianSubscription.objects.filter(uid__exact=user)
+    user = Profile.objects.get(user=request.user)
+    bill_subscriptions = UserBillSubscription.objects.filter(user=user)
+    committee_subscriptions = UserCommitteeSubscription.objects.filter(user=user)
+    politician_subscriptions = UserPoliticianSubscription.objects.filter(user=user)
     return render(
         request,
         'profile.html',
