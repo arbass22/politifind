@@ -27,7 +27,7 @@ The politifind project aims to make political data more accessible to the averag
 
 \n\textbf{Design Overview}: \\
 
-\n NOTE: We have created a user for whoever is grading this. You can login with username ``grader'' and password ``compsci326'' \\
+\n NOTE: We have created a user for whoever is grading this. You can login with username ``compsci326'' and password ``compsci326'' \\
 
 We started our login/logout functionality with a basic login page that allowed users to be authenticated through the app. Since our users have more information for their profile such as political party, subscriptions, profile picture, etc., we needed to extend Django's built in user model. We did this by making a one-to-one mapping from Our Profile model to Django's user model. After we had this functionality, we templated the UI to ensure that logged in users could not view the profile page without logging in, and we made the navbar show different buttons based on whether or not the user is authenticated.
 
