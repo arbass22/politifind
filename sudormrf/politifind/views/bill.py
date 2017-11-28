@@ -1,12 +1,18 @@
 from random import randrange
 from django.shortcuts import render
 from politifind.models import Bill, BillCommittee, BillAction, PoliticianVote, UserVote, Profile
+from politifind.models import Bill, BillCommittee, BillAction, PoliticianVote, UserBillSubscription, Profile, UserVote
 
 def bill(request, bid):
 
     bill = Bill.objects.get(bid=bid)
     all_bills = Bill.objects.all()
     bill_committees = BillCommittee.objects.filter(bill=bill)
+    is_subscribed = False
+    if request.user.is_authenticated:    
+        user = Profile.objects.filter(user=request.user)[0]
+        if len(UserBillSubscription.objects.filter(bill=bill, user=user)) > 0:
+            is_subscribed = True
     if len(bill_committees) == 0:
         similar_bills = []
     else:
@@ -57,7 +63,11 @@ def bill(request, bid):
             'bill_committees':bill_committees,
             'similar_bills':similar_bills,
             'votes':votes,
+<<<<<<< HEAD
             'user_vote':user_vote,
             'already_voted':already_voted
+=======
+            'is_subscribed':is_subscribed,
+>>>>>>> Added basic subscribe url
         }
     )

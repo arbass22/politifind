@@ -15,4 +15,5 @@ urlpatterns = [
     url(r'^search/', views.search, name='search'),
     url(r'^accounts/', include('django.contrib.auth.urls')),
     url(r'^vote/(.*)/(yay|nay)*/', views.vote, name='vote')
+    url(r'^subscribe/(bill|politician|committee)/(.*)$', views.subscribe, name='subscribe')
 ]
