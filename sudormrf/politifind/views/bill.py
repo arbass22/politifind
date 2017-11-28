@@ -9,7 +9,7 @@ def bill(request, bid):
     all_bills = Bill.objects.all()
     bill_committees = BillCommittee.objects.filter(bill=bill)
     is_subscribed = False
-    if request.user.is_authenticated:    
+    if request.user.is_authenticated:
         user = Profile.objects.filter(user=request.user)[0]
         if len(UserBillSubscription.objects.filter(bill=bill, user=user)) > 0:
             is_subscribed = True
@@ -24,9 +24,6 @@ def bill(request, bid):
 
     user_yay = UserVote.objects.filter(bill=bill, vote='yay').count()
     user_nay = UserVote.objects.filter(bill=bill, vote='nay').count()
-
-    print(user_yay)
-    print(user_nay)
 
     already_voted = False
     user_vote = None
