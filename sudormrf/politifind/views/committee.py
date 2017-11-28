@@ -1,9 +1,16 @@
 from django.shortcuts import render
 from django.urls import reverse
-from politifind.models import Committee, CommitteeMembership, BillCommittee, SubCommittee
+from politifind.models import Committee, Profile, CommitteeMembership, BillCommittee
+from politifind.models import SubCommittee, UserCommitteeSubscription
 
 def committee(request, cid, page=None):
     committee = Committee.objects.get(cid=cid)
+    is_subscribed = False
+    if request.user.is_authenticated:    
+        user = Profile.objects.filter(user=request.user)[0]
+        if len(UserCommitteeSubscription.objects.filter(committee=committee, user=user)) > 0:
+            is_subscribed = True
+    
     page_context = {
         "tabs": [{
                 "name": "Members",
@@ -26,7 +33,7 @@ def committee(request, cid, page=None):
         return render(
             request,
             'committees_bills.html',
-            context={"committee":committee, "page":page_context, "bills": bills},
+            context={"committee":committee, "page":page_context, "bills": bills, "is_subscribed": is_subscribed},
         )
     elif page == "subcomittees":
         page_context["active_tab"] = "Subcommittees"
@@ -34,7 +41,7 @@ def committee(request, cid, page=None):
         return render(
             request,
             'committees_subcommittees.html',
-            context={"committee":committee, "page":page_context, "subcommittees":subcommittees},
+            context={"committee":committee, "page":page_context, "subcommittees":subcommittees, "is_subscribed": is_subscribed},
         )
     else:
         page_context["active_tab"] = "Members"
@@ -42,5 +49,5 @@ def committee(request, cid, page=None):
         return render(
             request,
             'committees_members.html',
-            context={"committee":committee, "page":page_context, "members":members},
+            context={"committee":committee, "page":page_context, "members":members, "is_subscribed": is_subscribed},
         )
