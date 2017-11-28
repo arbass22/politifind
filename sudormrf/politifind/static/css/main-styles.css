@@ -137,3 +137,13 @@ div.navbar-collapse:not(.collapsing):not(.in) form.navbar-form .form-group input
     background-color: white;
     margin-bottom: 24px;
 }
+
+.subscribe {
+    color: grey;
+    font-size: 24px;
+    display: inline-block;
+}
+
+.subscribe.subscribed {
+    color: #CFB723;
+}
