@@ -19,7 +19,9 @@
             </div>
             <div class="col-xs-8 text-center center-block">
               <div class="politician name">{{ politician.name }} ({{ politician.party }})
-                {% include "components/subscribe-button.html" with subscribed=is_subscribed id=politician.pid type="politician" %}
+                {% if request.user.is_authenticated %}
+                  {% include "components/subscribe-button.html" with subscribed=is_subscribed id=politician.pid type="politician" %}
+                {% endif %}
               </div>
               <div class="position">{{ politician.title }} from {{ politician.state }}</div>
               {% include "components/tab-bar.html" with tabs=page.tabs %}

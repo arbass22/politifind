@@ -15,7 +15,9 @@
             <h1>
               <span class="glyphicon glyphicon-{% if bill.passed %}ok{% else %}remove{% endif %}-sign" aria-hidden="true"></span>
               {{ bill.code }} 
-              {% include "components/subscribe-button.html" with subscribed=is_subscribed id=bill.bid type="bill" %}
+              {% if request.user.is_authenticated %}
+                {% include "components/subscribe-button.html" with subscribed=is_subscribed id=bill.bid type="bill" %}
+              {% endif %}
             </h1>
             <h1>{{ bill.name }}</h1>
           </div>
