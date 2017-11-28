@@ -14,6 +14,7 @@ urlpatterns = [
     url(r'^profile/$', views.profile, name='profile'),
     url(r'^search/', views.search, name='search'),
     url(r'^accounts/', include('django.contrib.auth.urls')),
-    url(r'^vote/(.*)/(yay|nay)*/', views.vote, name='vote')
-    url(r'^subscribe/(bill|politician|committee)/(.*)$', views.subscribe, name='subscribe')
+    url(r'^vote/(.*)/(yay|nay)*/', views.vote, name='vote'),
+    url(r'^subscribe/$', views.subscribe, name='subscribe'),
+    url(r'^unsubscribe/$', views.unsubscribe, name='unsubscribe'),
 ]

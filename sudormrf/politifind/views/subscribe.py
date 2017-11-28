@@ -1,21 +1,36 @@
-from politifind.models import Profile, UserBillSubscription
+import datetime
+from django.http import HttpResponse
+from politifind.models import Profile, UserBillSubscription, Bill
 
-def subscribe(request, sub_type, bill_id):
-    # do subscription 
+# do subscription 
+def subscribe(request):
+    item_type = request.POST.get("type")
+    item_id = request.POST.get("id")
     user = Profile.objects.filter(user=request.user)[0]
     
-    print "hello from subscribe"
-    return True
-    if sub_type is 'bill':
-        assoc = UserBillSubscription.objects.get_or_create(
+    if item_type == 'bill':
+        bill = Bill.objects.filter(bid=item_id)[0]
+        (subscription, created) = UserBillSubscription.objects.get_or_create(
             user=user, 
-            bill=bill_id,
-            date_subscribed=datetime.date.today(),
+            bill=bill, 
+            date_subscribed=datetime.datetime.now()
         )
-    
-def unsubscribe(type, id):
-    # do unsubscribe
-    print "hello from sunubscribe"
-    return True
 
+    return HttpResponse(status=200);
     
+# do unsubscribe
+def unsubscribe(request):
+    item_type = request.POST.get("type")
+    item_id = request.POST.get("id")
+    user = Profile.objects.filter(user=request.user)[0]
+    print item_type
+    if item_type == 'bill':
+        print "here"
+        bill = Bill.objects.filter(bid=request.POST.get("id"))[0]
+        (subscription, created) = UserBillSubscription.objects.filter(
+            user=user, 
+            bill=bill, 
+            date_subscribed=datetime.datetime.now()
+        ).delete()
+
+    return HttpResponse(status=200);

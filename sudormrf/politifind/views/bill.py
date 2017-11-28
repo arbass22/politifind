@@ -63,11 +63,8 @@ def bill(request, bid):
             'bill_committees':bill_committees,
             'similar_bills':similar_bills,
             'votes':votes,
-<<<<<<< HEAD
             'user_vote':user_vote,
-            'already_voted':already_voted
-=======
+            'already_voted':already_voted,
             'is_subscribed':is_subscribed,
->>>>>>> Added basic subscribe url
         }
     )

@@ -1,8 +1,29 @@
-<button type="button" class="btn btn-default" aria-label="Left Align">
+<div class="subscribe {% if is_subscribed %} subscribed {% endif %}">
   <span class="glyphicon glyphicon-bell" aria-hidden="true"></span>
-  {% if subscribed %}
-  Subscribed
-  {% else %}
-  Subscribe
-  {% endif %}
-</button>
+</div>
+<script>
+  var subButton = $('.subscribe');
+  // var isSubscribed = subButton.hasClass('subscribed');
+  subButton.click(function() {
+    if (!subButton.hasClass('subscribed')) {
+      // User is not subscribed
+      $.post("/subscribe/", {
+        csrfmiddlewaretoken: "{{ csrf_token }}",
+        type: "{{ type }}",
+        id: "{{ id }}",
+      }, function() {
+        subButton.addClass("subscribed");
+      });
+    } else {
+      $.post("/unsubscribe/", {
+        csrfmiddlewaretoken: "{{ csrf_token }}",
+        type: "{{ type }}",
+        id: "{{ id }}",
+      }, function() {
+        subButton.removeClass("subscribed");
+      });
+      
+    }
+  });
+  
+</script>
