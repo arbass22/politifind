@@ -5,11 +5,116 @@
 {% block page_content %}
 <div class="top-section">
   <div class="container">
-    <h1>Welcome to Politifind!</h1>
-    <p class="lead">
-      Politifind is THE most useful tool for keeping up to date with what's going on in your government.
-      Search and Subscribe to your favorite Congressional Politicians, Committees and Bills.
-    </p>
+    <div class="text-center">
+      <h1>Welcome to Politifind{% if user.is_authenticated %}, {{user.get_username}}{% endif %}!</h1>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-md-8">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="panel panel-primary">
+            {% if user.is_authenticated %}
+            <div class="panel-heading">
+              <h3 class="panel-title"><span class="glyphicon glyphicon-flash"></span>&nbsp;Your Bill Subscriptions</h3>
+            </div>
+            <div class="panel-body list-group">
+              {% for bill_subscription in user_bill %}
+              <a class="list-group-item" href="{% url 'bill' bill_subscription.bill.bid %}">
+                <h4 class="list-group-item-heading">{{bill_subscription.bill.code}}</h4>
+                <p class="list-group-item-text">{{bill_subscription.bill.name}}</p>
+              </a>
+              {% endfor %}
+            </div>
+            {% else %}
+            <div class="panel-heading">
+              <h3 class="panel-title"><span class="glyphicon glyphicon-flash"></span>&nbsp;Recent Bills</h3>
+            </div>
+            <div class="panel-body list-group">
+              {% for bill in recent_bill_news %}
+              <a class="list-group-item" href="{% url 'bill' bill.bid %}">
+                <h4 class="list-group-item-heading">{{bill.code}}</h4>
+                <p class="list-group-item-text">{{bill.name}}</p>
+              </a>
+              {% endfor %}
+            </div>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+      {% if user.is_authenticated %}
+      {% for sub_pol in user_politician %}
+      {% if forloop.first %}
+      <div class="row">
+        <div class="col-md-12">
+          <div class="panel panel-primary">
+            <div class="panel-heading">
+              <h3 class="panel-title"><span class="glyphicon glyphicon-list-alt"></span>&nbsp;Subscribed Politicians</h3>
+            </div>
+            <div class="panel-body list-group">
+      {% endif %}
+              <a class="list-group-item" href="{% url 'politician' sub_pol.politician.pid %}">
+                <h4 class="list-group-item-heading">{{ sub_pol.politician.name }}</h4>
+                <p class="list-group-item-text">{{ sub_pol.politician.name }} has voted with their party {{ sub_pol.politician.votes_with_party_pct }}% of the time.</p>
+              </a>
+      {% if forloop.last %}
+            </div>
+          </div>
+        </div>
+      </div>
+      {% endif %}
+      {% endfor %}
+      {% endif %}
+      {% for politician_vote in recent_politician_news %}
+      <div class="row">
+        <div class="col-md-12">
+          <div class="panel panel-primary">
+            <div class="panel-heading">
+              <h3 class="panel-title"><span class="glyphicon {% if politician_vote.vote == "Yes" %}glyphicon-ok{%else%}glyphicon-remove{%endif%}"></span>&nbsp;Recent Vote</h3>
+            </div>
+            <div class="panel-body">
+              <p>{{politician_vote.politician.name}} voted "{{politician_vote.vote}}" on bill <a href="{% url 'bill' politician_vote.bill.bid %}">{{politician_vote.bill.code}}: {{politician_vote.bill.name}}</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+      {% if user.is_authenticated %}
+      {% for sub_com in user_committee %}
+      {% if forloop.first %}
+      <div class="row">
+        <div class="col-md-12">
+          <div class="panel panel-primary">
+            <div class="panel-heading">
+              <h3 class="panel-title"><span class="glyphicon glyphicon-list-alt"></span>&nbsp;Subscribed Committees</h3>
+            </div>
+            <div class="panel-body list-group">
+      {% endif %}
+              <a class="list-group-item" href="{% url 'committee' sub_com.committee.cid %}">
+                <h4 class="list-group-item-heading">{{ sub_com.committee.name }}</h4>
+                <p class="list-group-item-text">Chair: {{ sub_com.committee.chair }}<br>Ranking Member: {{ sub_com.committee.ranking_member }}</p>
+              </a>
+      {% if forloop.last %}
+            </div>
+          </div>
+        </div>
+      </div>
+      {% endif %}
+      {% endfor %}
+      {% endif %}
+    </div>
+    <div class="col-md-4">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">Congressional Twitter Feed</h3>
+        </div>
+        <div class="panel-body timeline">
+          <a class="twitter-timeline" href="https://twitter.com/congressdotgov?ref_src=twsrc%5Etfw">Tweets by congressdotgov</a> <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 {% endblock %}

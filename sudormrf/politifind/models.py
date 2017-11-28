@@ -85,8 +85,8 @@ class UserVote(models.Model):
     """
     Model representing a given User's vote on a certain Bill
     """
-    user = models.ForeignKey('Profile', help_text="Enter the id of the voting user")
-    bill = models.ForeignKey('Bill', help_text="Enter the id of the bill being voted on")
+    user = models.ForeignKey('Profile', help_text="Enter the id of the voting user", null=True)
+    bill = models.ForeignKey('Bill', help_text="Enter the id of the bill being voted on", null=True)
     vote = models.CharField(max_length=15, help_text="Enter how the user voted on this bill")
     date_voted = models.DateField(help_text="Enter the date of the user's vote")
 
@@ -103,7 +103,7 @@ class Committee(models.Model):
     cid = models.CharField(max_length=64, primary_key=True, help_text="Enter the id of the committee")
     name = models.CharField(max_length=200, help_text="Enter the name of this committee")
     chair = models.ForeignKey('Politician', related_name='chair', help_text="Enter the chair", null=True)
-    ranking_member = models.ForeignKey('Politician', related_name='ranking_member', help_text="Enter the ranking member")
+    ranking_member = models.ForeignKey('Politician', related_name='ranking_member', help_text="Enter the ranking member", null=True)
     chamber = models.CharField(max_length=20, null=True)
 
     def __str__(self):
@@ -117,23 +117,23 @@ class SubCommittee(models.Model):
     Model representing a subcomittee
     """
     sid = models.CharField(max_length=54, primary_key=True, help_text="Enter the id of this subcommittee (must also be a valid Committee)")
-    name = models.CharField(max_length=200, help_text="Enter the name of this subcommittee")
-    parent = models.ForeignKey('Committee', related_name="parent", help_text="Enter the parent committee of this subcommittee")
+    name = models.CharField(max_length=200, help_text="Enter the name of this subcommittee", default="")
+    parent = models.ForeignKey('Committee', related_name="parent", help_text="Enter the parent committee of this subcommittee", null=True)
 
 class CommitteeMembership(models.Model):
     """
     Model representing the membership of a politician in a specific committee
     """
-    committee = models.ForeignKey('Committee', help_text="Enter the committee that this politician is a member of")
-    politician = models.ForeignKey('Politician', help_text="Enter the politician that is a member of the committee")
+    committee = models.ForeignKey('Committee', help_text="Enter the committee that this politician is a member of", null=True)
+    politician = models.ForeignKey('Politician', help_text="Enter the politician that is a member of the committee", null=True)
     relationship = models.CharField(max_length=30, help_text="Enter the politician's relationship to this committee")
 
 class BillCommittee(models.Model):
     """
     Model representing the relationship between a bill and its associated committee
     """
-    bill = models.ForeignKey('Bill', help_text="Enter the bill")
-    committee = models.ForeignKey('Committee', help_text="Enter the committee")
+    bill = models.ForeignKey('Bill', help_text="Enter the bill", null=True)
+    committee = models.ForeignKey('Committee', help_text="Enter the committee", null=True)
 
 #####################
 
@@ -145,14 +145,14 @@ class BillSponsorship(models.Model):
     """
     Model representing a sponsorship of a bill
     """
-    bill = models.ForeignKey('Bill', help_text="Enter the id of the bill")
-    politician = models.ForeignKey('Politician', help_text="Enter the id of the politician that is a sponsor of the bill")
+    bill = models.ForeignKey('Bill', help_text="Enter the id of the bill", null=True)
+    politician = models.ForeignKey('Politician', help_text="Enter the id of the politician that is a sponsor of the bill", null=True)
 
 class BillAction(models.Model):
     """
     Model representing an action on a bill
     """
-    bill = models.ForeignKey('Bill', help_text="Enter the id of the bill")
+    bill = models.ForeignKey('Bill', help_text="Enter the id of the bill", null=True)
     action = models.CharField(max_length=200, help_text="Enter the action on the bill")
     action_date = models.DateField(help_text="Enter the date of the action")
 
@@ -166,24 +166,24 @@ class UserPoliticianSubscription(models.Model):
     """
     Model representing a user subscribing to a politician
     """
-    user = models.ForeignKey('Profile', help_text="Enter the subscribing user")
-    politician = models.ForeignKey('Politician', help_text="Enter the subscribed politician")
+    user = models.ForeignKey('Profile', help_text="Enter the subscribing user", null=True)
+    politician = models.ForeignKey('Politician', help_text="Enter the subscribed politician", null=True)
     date_subscribed = models.DateField(help_text="Enter the date that the user subscribed to this politician")
 
 class UserBillSubscription(models.Model):
     """
     Model representing a user subscribing to a bill
     """
-    user = models.ForeignKey('Profile', help_text="Enter the id of the voting user")
-    bill = models.ForeignKey('Bill', help_text="Enter the id of the bill being voted on")
+    user = models.ForeignKey('Profile', help_text="Enter the id of the voting user", null=True)
+    bill = models.ForeignKey('Bill', help_text="Enter the id of the bill being voted on", null=True)
     date_subscribed = models.DateField(help_text="Enter the date that the user subscribed to this bill")
 
 class UserCommitteeSubscription(models.Model):
     """
     Model representing a user subscribing to a committee
     """
-    user = models.ForeignKey('Profile', help_text="Enter the id of the voting user")
-    committee = models.ForeignKey('Committee', help_text="Enter the id of the committee")
+    user = models.ForeignKey('Profile', help_text="Enter the id of the voting user", null=True)
+    committee = models.ForeignKey('Committee', help_text="Enter the id of the committee", null=True)
     date_subscribed = models.DateField(help_text="Enter the date that the user subscribed to this committee")
 
 #####################
