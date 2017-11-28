@@ -89,6 +89,7 @@ class UserVote(models.Model):
     bill = models.ForeignKey('Bill', help_text="Enter the id of the bill being voted on")
     vote = models.CharField(max_length=15, help_text="Enter how the user voted on this bill")
     date_voted = models.DateField(help_text="Enter the date of the user's vote")
+    comment = models.CharField(max_length=280, help_text="Enter the comment of the user vote", null=True)
 
 #####################
 
