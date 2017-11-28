@@ -52,57 +52,63 @@
     <div class="panel-body">
       <label>Subscriptions</label>
       {% for subscription in bill_subscriptions %}
-      <div class="media">
-        <div class="media-left">
-          <div style="width:80px;height:80px;">
-            {% load staticfiles %}
-            <img class="media-object img-responsive" src="{% static "images/bill-icon-256.png" %}"/>
+        <a href="{% url 'bill' subscription.bill.bid %}">
+          <div class="media">
+            <div class="media-left">
+              <div style="width:80px;height:80px;">
+                {% load staticfiles %}
+                <img class="media-object img-responsive" src="{% static "images/bill-icon-256.png" %}"/>
+              </div>
+            </div>
+            <div class="media-body">
+              <h4 class="media-heading">
+              {{ subscription.bill.code }}
+              </h4>
+              <p>{{ subscription.bill.name }}</p>
+            </div>
           </div>
-        </div>
-        <div class="media-body">
-          <h4 class="media-heading">
-          {{ subscription.bill.code }}
-          </h4>
-          <p>{{ subscription.bill.name }}</p>
-        </div>
-      </div>
-      {% if not forloop.last %}
-      <hr>
-      {% endif %}
+          {% if not forloop.last %}
+          <hr>
+          {% endif %}
+        </a>
       {% endfor %}
       {% for subscription in politician_subscriptions %}
-      <div class="media">
-        <div class="media-left">
-          <div style="width:80px;height:80px;">
-            <img class="media-object img-responsive" src="{{subscription.politician.picture}}"/>
+        <a href="{% url 'politician' subscription.politician.pid %}">
+          <div class="media">
+            <div class="media-left">
+              <div style="width:80px;height:80px;">
+                <img class="media-object img-responsive" src="{{subscription.politician.picture}}"/>
+              </div>
+            </div>
+            <div class="media-body">
+              <h4 class="media-heading">
+              {{ subscription.politician }}
+              </h4>
+            </div>
           </div>
-        </div>
-        <div class="media-body">
-          <h4 class="media-heading">
-          {{ subscription.politician }}
-          </h4>
-        </div>
-      </div>
-      {% if not forloop.last %}
-      <hr>
-      {% endif %}
+          {% if not forloop.last %}
+          <hr>
+          {% endif %}
+        </a>
       {% endfor %}
       {% for subscription in committee_subscriptions %}
-      <div class="media">
-        <div class="media-left">
-          <div style="width:80px;height:80px;">
-            <img class="media-object img-responsive" src="https://images.c-span.org/Files/cad/20170926103920003_hd.jpg/Thumbs/height.200.no_border.width.200.jpg"/>
+        <a href="{% url 'committee' subscription.committee.cid %}">
+          <div class="media">
+            <div class="media-left">
+              <div style="width:80px;height:80px;">
+                <img class="media-object img-responsive" src="https://images.c-span.org/Files/cad/20170926103920003_hd.jpg/Thumbs/height.200.no_border.width.200.jpg"/>
+              </div>
+            </div>
+            <div class="media-body">
+              <h4 class="media-heading">
+              {{ subscription.committee }}
+              </h4>
+            </div>
           </div>
-        </div>
-        <div class="media-body">
-          <h4 class="media-heading">
-          {{ subscription.committee }}
-          </h4>
-        </div>
-      </div>
-      {% if not forloop.last %}
-      <hr>
-      {% endif %}
+        </a>
+        {% if not forloop.last %}
+        <hr>
+        {% endif %}
       {% endfor %}
     </div>
   </div>

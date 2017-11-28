@@ -143,13 +143,17 @@
         {% for sbill in similar_bills %}
           <div class="col-sm-4">
             <div class="panel panel-default">
-              <div class="panel-heading" style="text-align:center;">
-                <span class="glyphicon glyphicon-{% if sbill.passed %}ok{% else %}remove{% endif %}-sign"></span>&nbsp;
-                {{ sbill }}
-             </div>
-              <div class="panel-body" style="text-align:center;">
-                {{ sbill.sponsor_pid }}
-              </div>
+              <a href="{% url 'bill' sbill.bid %}">
+                <div class="panel-heading text-center">
+                  <span class="glyphicon glyphicon-{% if sbill.passed %}ok{% else %}remove{% endif %}-sign"></span>&nbsp;
+                  {{ sbill }}
+                </div>
+              </a>
+              <a href="{% url 'politician' sbill.sponsor.pid %}">
+                <div class="panel-body text-center">
+                  Sponsored by {{ sbill.sponsor }}
+                </div>
+              </a>
             </div>
           </div>
         {% endfor %}

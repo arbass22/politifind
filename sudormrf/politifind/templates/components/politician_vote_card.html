@@ -8,7 +8,7 @@ This card is used to show how a certain politician voted on a bill
       {{ vote.date_voted }}
     </div>
     <div class="panel-body">
-      <strong>{{ vote.vote }}</strong> on {{ vote.bill }}
+      <strong>{{ vote.vote }}</strong> on <a href="{% url 'bill' vote.bill.bid %}">{{ vote.bill }}</a>
     </div>
   </div>
 </div>
