@@ -7,9 +7,12 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/algoliasearch/3/algoliasearch.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/autocomplete.js/0/autocomplete.jquery.min.js"></script>
     {% load static %}
     <link rel='stylesheet' type="text/css" href="{% static 'css/main-styles.css' %}"></link>
     {% block custom_css %}{% endblock %}
+
   </head>
   <body>
     <div class="navbar navbar-default navbar-fixed-top">
@@ -25,7 +28,7 @@
         <div class="collapse navbar-collapse" id="bs-navbar-collapse">
           <form class="navbar-form navbar-left" action="{% url 'search' %}">
             <div class="form-group">
-              <input class="form-control" placeholder="Search bills, politicians, committees, etc..." type="search", name="q">
+              <input id="aa-search-input" class="form-control" placeholder="Search bills, politicians, committees, etc..." type="text", name="q">
             </div>
           </form>
           <ul class="nav navbar-nav navbar-right">
@@ -47,8 +50,69 @@
         </div>
       </div>
     </div>
-
-
-      {% block page_content %}{% endblock %}
+    {% block page_content %}{% endblock %}
+    <script>
+      var client = algoliasearch("V411YYYOFW", "fd56d3b8670c740f18f949b26393906f");
+      var politicians = client.initIndex('politicians');
+      var bills = client.initIndex('bills');
+      var committees = client.initIndex('committees');
+      //initialize autocomplete on search input (ID selector must match)
+      $('#aa-search-input').autocomplete({hint: false}, [
+        {
+          source: $.fn.autocomplete.sources.hits(politicians, { hitsPerPage: 5 }),
+          //value to be displayed in input control after user's suggestion selection
+          displayKey: 'name',
+          //hash of templates used when rendering dataset
+          templates: {
+            //'suggestion' templating function used to render a single suggestion
+            suggestion: function(suggestion) {
+              console.log(suggestion);
+              return `
+                <a class="search-result" href="/politician/${suggestion.pid}">
+                  <div class="search-result">
+                    ${suggestion._highlightResult.name.value} (${suggestion.state})
+                  </div>
+                </a>`
+            }
+          }
+        },
+        {
+            source: $.fn.autocomplete.sources.hits(bills, { hitsPerPage: 5 }),
+            //value to be displayed in input control after user's suggestion selection
+            displayKey: 'name',
+            //hash of templates used when rendering dataset
+            templates: {
+              //'suggestion' templating function used to render a single suggestion
+              suggestion: function(suggestion) {
+                console.log(suggestion);
+                return `
+                  <a class="search-result" href="/bill/${suggestion.bid}">
+                    <div class="search-result">
+                      ${suggestion._highlightResult.name.value}
+                    </div>
+                  </a>`
+              }
+            }
+          },
+          {
+              source: $.fn.autocomplete.sources.hits(committees, { hitsPerPage: 5 }),
+              //value to be displayed in input control after user's suggestion selection
+              displayKey: 'name',
+              //hash of templates used when rendering dataset
+              templates: {
+                //'suggestion' templating function used to render a single suggestion
+                suggestion: function(suggestion) {
+                  console.log(suggestion);
+                  return `
+                    <a class="search-result" href="/committee/${suggestion.cid}">
+                      <div class="search-result">
+                        ${suggestion._highlightResult.name.value}
+                      </div>
+                    </a>`
+                }
+              }
+            }
+      ]);
+    </script>
   </body>
 </html>

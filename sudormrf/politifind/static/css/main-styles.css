@@ -147,3 +147,29 @@ div.navbar-collapse:not(.collapsing):not(.in) form.navbar-form .form-group input
 .subscribe.subscribed {
     color: #CFB723;
 }
+
+.aa-dropdown-menu {
+    border: solid 1px darkgrey;
+    border-radius: 5px;
+    background-color: lightgrey;
+}
+
+.search-result > div {
+    color: black;
+    padding: 6px 12px 6px 12px;
+}
+
+.search-result:hover > div {
+    background-color: darkgrey;
+    text-decoration: none;
+}
+
+.search-result,
+.search-result:hover {
+    text-decoration: none;
+    font-size: 18px;
+}
+
+.search-result .highlight {
+    font-weight: bold;
+}
