@@ -10,7 +10,7 @@ body {
 }
 
 .panel hr {
-    margin: 15px 0px 15px 0px;
+    margin: 8px 0px 15px 0px;
 }
 
 .panel {
@@ -91,6 +91,10 @@ div.navbar-collapse:not(.collapsing):not(.in) form.navbar-form .form-group input
     font-size: 14px;
 }
 
+.card-header {
+    color: darkgrey;
+    font-size: 18px;
+}
 
 /* Page section tabs */
 

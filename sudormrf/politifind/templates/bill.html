@@ -13,24 +13,31 @@
         <div style="text-align:center;">
           <div class="row">
             <h1>
-              <span class="glyphicon glyphicon-{% if bill.passed %}ok{% else %}remove{% endif %}-sign" aria-hidden="true"></span>
-              {{ bill.code }} 
+              {{ bill.code }}
               {% if request.user.is_authenticated %}
                 {% include "components/subscribe-button.html" with subscribed=is_subscribed id=bill.bid type="bill" %}
               {% endif %}
             </h1>
-            <h1>{{ bill.name }}</h1>
+            <h2>{{ bill.name }}</h2>
           </div>
           <div class="row">
             <p class="lead">{{ bill.subject }}</p>
           </div>
-          <div class="row">
-            <div class="col-sm-6 col-sm-offset-3">
-              <p class="lead">
-                Committee(s): {% for committee in bill_committees %} {{ committee.committee }}{% if not forloop.last %}, {% endif %}{% endfor %}
-              </p>
+          {% if bill_committees %}
+            <div class="row">
+              <div class="col-sm-6 col-sm-offset-3">
+                <p class="lead">
+                  Committee(s):
+                  {% for committee in bill_committees %}
+                    <a href="{% url 'committee' committee.committee.cid %}">
+                      {{ committee.committee }}
+                    </a>
+                    {% if not forloop.last %}, {% endif %}
+                  {% endfor %}
+                </p>
+              </div>
             </div>
-          </div>
+          {% endif %}
           {% if request.user.is_authenticated %}
             <div class="row">
               <p class="lead">Vote:</p>
@@ -65,14 +72,13 @@
             {% include "components/politician-summary-card.html" with person=bill.sponsor %}
         </div>
       </div>
-      <div class="row">
-        <div class="col-sm-offset-2 col-sm-8">
-          <p class="lead" style="text-align:center;">Summary:</p>
-          <div class="well well-sm pre-scrollable">
-            {{ bill.summary }}
+      {% if bill.summary %}
+        <div class="row">
+          <div class="col-sm-6 col-sm-offset-3">
+            {% include "components/bill_summary_card.html" with summary=bill.summary %}
           </div>
         </div>
-      </div>
+      {% endif %}
       <hr />
       <div class="row">
         <div class="col-sm-offset-2 col-sm-8">
