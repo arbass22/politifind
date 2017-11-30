@@ -8,3 +8,4 @@ writeups/*.log
 writeups/*.synctex.gz
 writeups/*.out
 .cache
+*.json
