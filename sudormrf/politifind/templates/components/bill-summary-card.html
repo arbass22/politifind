@@ -1,7 +1,10 @@
 <a href="{% url "bill" bill.bid %}">
-  <div class="panel">
+  <div class="panel panel-default bill-summary-card">
+    <div class="panel-heading">
+      {{ bill.code }}
+    </div>
     <div class="panel-body">
-      {{ bill.code }} | {{ bill.name }} | {{ bill.status }}
+     {{ bill.name }}
     </div>
   </div>
 </a>

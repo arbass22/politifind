@@ -29,15 +29,15 @@
         <hr>
     </div>
 
-    <div class="panel panel-default">
+    <div class="panel panel-default politician-committee-list">
       <div class="panel-body">
         <div class="card-header">
           {{ politician.name }} is a member of {{ committee_membership|length }} committees.
         </div>
         <hr>
         {% for committee in committee_membership %}
-          <a href="{% url "committee" committee.cid %}">
-            <div>
+          <a class="selectable-item" href="{% url "committee" committee.cid %}">
+            <div class="selectable-item">
               <span>{{ committee.name }}</span>
             </div>
           </a>
@@ -50,13 +50,15 @@
           {{ politician.name }} sponsored {{ bill_sponsorship|length }} bills this year.
         </div>
         <hr>
+        <div class="politician-bill-list">
         {% for bill in bill_sponsorship %}
-          <a href="{% url 'bill' bill.bid %}">
-            <div>
+          <a class="selectable-item" href="{% url 'bill' bill.bid %}">
+            <div class="selectable-item">
               <span><strong>{{ bill.code }}</strong>: {{ bill.name }}</span>
             </div>
           </a>
         {% endfor %}
+        </div>
       </div>
     </div>
   </div>

@@ -10,7 +10,7 @@ body {
 }
 
 .panel hr {
-    margin: 8px 0px 15px 0px;
+    margin: 8px 0px 8px 0px;
 }
 
 .panel {
@@ -89,6 +89,16 @@ div.navbar-collapse:not(.collapsing):not(.in) form.navbar-form .form-group input
 
 .person-card .summary {
     font-size: 14px;
+}
+
+.politician-committee-list {
+    max-height: 300px;
+    overflow: scroll;
+}
+
+.politician-bill-list {
+    max-height: 300px;
+    overflow: scroll;
 }
 
 .card-header {
@@ -171,9 +181,23 @@ div.navbar-collapse:not(.collapsing):not(.in) form.navbar-form .form-group input
 .search-result,
 .search-result:hover {
     text-decoration: none;
-    font-size: 18px;
+    font-size: 14px;
 }
 
 .search-result .highlight {
     font-weight: bold;
+}
+
+.selectable-item:hover div {
+    background-color: lightgrey;
+}
+
+a.selectable-item:hover {
+    text-decoration: none;
+}
+
+.selectable-item > div {
+    padding: 6px;
+    color: black;
+    text-decoration: none;
 }

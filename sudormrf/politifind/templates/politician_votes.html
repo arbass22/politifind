@@ -6,13 +6,15 @@
     {% include "components/politician_vote_summary_card.html" %}
   </div>
   <div class="row">
-    <div class="card-section-header">
-      <div>Recent votes</div>
-      <hr>
+    <div class="col-sm-6 col-sm-offset-3 col-md-8 col-md-offset-2">
+      <div class="card-section-header">
+        <div>Recent votes</div>
+        <hr>
+      </div>
+      {% for vote in recent_votes %}
+        {% include "components/politician_vote_card.html" %}
+      {% endfor %}
     </div>
-    {% for vote in recent_votes %}
-      {% include "components/politician_vote_card.html" %}
-    {% endfor %}
   </div>
 </div>
 {% endblock %}

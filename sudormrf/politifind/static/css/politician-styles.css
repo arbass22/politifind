@@ -79,9 +79,12 @@
     height: 32px;
 }
 
-.politician-vote-card .summary {
-    max-height: 200px;
-    height: 100%;
+.politician-vote-card .panel-body {
+    height: 150px;
     overflow: scroll;
-    text-overflow: ellipsis;
+}
+
+.bill-summary-card {
+    height: 150px;
+    overflow: scroll;
 }
