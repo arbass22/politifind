@@ -202,7 +202,7 @@ a.selectable-item:hover {
     text-decoration: none;
 }
 
-.timeline {
+.twitter {
     max-height: 500px;
     overflow-y: scroll;
 }
