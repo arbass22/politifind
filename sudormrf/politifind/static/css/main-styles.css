@@ -201,3 +201,8 @@ a.selectable-item:hover {
     color: black;
     text-decoration: none;
 }
+
+.timeline {
+    max-height: 500px;
+    overflow-y: scroll;
+}
