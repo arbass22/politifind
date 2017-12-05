@@ -143,29 +143,32 @@
           {% endfor %}
         </ul>
       </div>
-      <hr />
-      <div class="row">
-        <p class="lead" style="text-align:center;">Similar Bills:</p>
-      </div>
-      <div class="row">
-        {% for sbill in similar_bills %}
-          <div class="col-sm-4">
-            <div class="panel panel-default">
-              <a href="{% url 'bill' sbill.bid %}">
-                <div class="panel-heading text-center">
-                  <span class="glyphicon glyphicon-{% if sbill.passed %}ok{% else %}remove{% endif %}-sign"></span>&nbsp;
-                  {{ sbill }}
-                </div>
-              </a>
-              <a href="{% url 'politician' sbill.sponsor.pid %}">
-                <div class="panel-body text-center">
-                  Sponsored by {{ sbill.sponsor }}
-                </div>
-              </a>
+      {% if similar_bills %}
+        <hr />
+        <div class="row">
+          <p class="lead" style="text-align:center;">Similar Bills:</p>
+        </div>
+        <div class="row">
+          {% for sbill in similar_bills %}
+            <div class="col-sm-4">
+              <div class="panel panel-default">
+                <a href="{% url 'bill' sbill.bid %}">
+                  <div class="panel-heading text-center">
+                    <span class="glyphicon glyphicon-{% if sbill.passed %}ok{% else %}remove{% endif %}-sign"></span>&nbsp;
+                    {{ sbill }}
+                  </div>
+                </a>
+                <a href="{% url 'politician' sbill.sponsor.pid %}">
+                  <div class="panel-body text-center">
+                    Sponsored by {{ sbill.sponsor }}
+                  </div>
+                </a>
+              </div>
             </div>
-          </div>
-        {% endfor %}
-      </div>
+          {% endfor %}
+        </div>
+      {% endif %}
+
     </div>
     <div id="yayModal" class="modal fade" tabindex="-1">
       <div class="modal-dialog modal-sm">
