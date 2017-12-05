@@ -10,3 +10,9 @@
 .committee-makeup .democrat {
     background-color: blue;
 }
+
+
+.bill-summary-card .panel-body {
+    height: 150px;
+    overflow: scroll;
+}

@@ -1,14 +1,16 @@
 {% extends "committees_base.html" %}
 
 {% block section_content %}
-<div class="row">
-  {% if not bills %}
-  No bills in this committee currently.  Get notified when there are
-  {% endif %}
-  {% for bill in bills %}
-    <div class="col-md-4">
-      {% include "components/bill-summary-card.html"%}
-    </div>
-  {% endfor %}
+<div class="col-sm-6 col-sm-offset-3 col-md-8 col-md-offset-2">
+  <div class="row">
+    {% if not bills %}
+    No bills in this committee currently.  Get notified when there are
+    {% endif %}
+    {% for bill in bills %}
+      <div class="col-md-6">
+        {% include "components/bill-summary-card.html"%}
+      </div>
+    {% endfor %}
+  </div>
 </div>
 {% endblock %}
