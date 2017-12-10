@@ -1,6 +1,7 @@
 \documentclass{article}
 \usepackage[utf8]{inputenc}
 \usepackage[margin=1in]{geometry}
+\usepackage{graphicx}
 \usepackage{hyperref}
 \hypersetup{
     colorlinks=true,
@@ -24,7 +25,24 @@
 
 \n\textbf{User Interface}: \\
 
-\n\textbf{Data Model}: \\
+\n\textbf{Data Model}: The following diagram is our updated data model for Politifind with the following descriptions: \\ 
+
+\n\textit{Profile}: Includes authentication fields for the django User as well as information about this user's politifind profile. \\
+\n\textit{Politician}: Represents a member of congress in either the house or senate. \\
+\n\textit{Bill}: A congressional bill.\\
+\n\textit{PoliticianVote}: Indicates how a specific Politician voted on a specific bill. \\
+\n\textit{UserVote}: Indicates how a specific politifind user voted on a specific bill.\\
+\n\textit{Committee}: Represents a committee in congress. \\
+\n\textit{SubCommittee}: Represents a subcommittee of an existing politifind Committee object. \\
+\n\textit{CommitteeMembership}: Indicates that a specific Politician is a member of a specific Committee. \\
+\n\textit{BillCommittee}: Indicates that a specific Committee introduced a specific Bill. \\
+\n\textit{BillSponsorship}: Indicates which Politician sponsored a specific Bill. \\
+\n\textit{BillAction}: An action that has happened on a specific Bill. \\
+\n\textit{UserPoliticianSubscription}: Indicates that a politifind user subscribed to a specific Politician. \\
+\n\textit{UserBillSubscription}: Indicates that a politifind user subscribed to a specific Bill.\\
+\n\textit{UserCommitteeSubscription}: Indicates that a politifind user subscribed to a specific Committee.\\
+
+\includegraphics[scale=0.5]{politifind-data-model-UPDATED.png} \\
 
 \n\textbf{URL Routes/Mappings}: \\
 
