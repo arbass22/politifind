@@ -12,14 +12,42 @@
   <div class="container">
     <div class="row" style="text-align:center;">
       {% if not results %}
-      <h1> No results found for {{ query }}</h1>
-      {% else %}
-        {% for result in results %}
-        <p>{{ result }}</p>
-        {% endfor %}
-      {% endif %}
+      <h1>No results found for "{{ query }}"</h1>
     </div>
   </div>
 </div>
+      {% else %}
+      <h1>Results for "{{ query }}"</h1>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3 main-column">
+      {% for result in results %}
+        {% if result.type == 'politician' %}
+          {% include "components/politician-summary-card.html" with person=result.politician %}
+        {% elif result.type == 'committee' %}
+          <div class="panel panel-default">
+            <div class="panel-body">
+              <div>
+                <a href="/committee/{{ result.committee.cid }}">{{result.committee.name}}</span>
+              </div>
+            </div>
+          </div>
+        {% elif result.type == 'bill' %}
+          <div class="panel panel-default">
+            <div class="panel-body">
+              <div>
+                <a href="/bill/{{ result.bill.bid }}">{{result.bill.code}}: {{result.bill.name}}</span>
+              </div>
+            </div>
+          </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+</div>
+      {% endif %}
 
 {% endblock %}

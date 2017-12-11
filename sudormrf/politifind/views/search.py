@@ -16,30 +16,19 @@ def search(request):
     for politician in politicianResponse['hits']:
         results.append({
             'type': 'politician',
-            'picture': politician['picture'],
-            'name': politician['name'],
-            'state': politician['state'],
-            'party': politician['party'],
-            'pid': politician['pid'],
-            'title': politician['title']
+            'politician': politician,
         })
 
     for committee in committeeResponse['hits']:
         results.append({
             'type': 'committee',
-            'cid': committee['cid'],
-            'name': committee['name'],
-            'chamber': committee['chamber']
+            'committee': committee,
         })
 
     for bill in billResponse['hits']:
         results.append({
             'type': 'bill',
-            'bid': bill['bid'],
-            'code': bill['code'],
-            'name': bill['name'],
-            'status': bill['status'],
-            'subject': bill['subject']
+            'bill': bill,
         })
 
     print(len(results))
