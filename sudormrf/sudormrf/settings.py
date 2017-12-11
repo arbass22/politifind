@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'politifind.apps.PolitifindConfig',
+    'algoliasearch_django'
 ]
 
 MIDDLEWARE = [
@@ -124,3 +125,8 @@ STATIC_URL = '/static/'
 LOGIN_REDIRECT_URL = '/'
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+ALGOLIA = {
+    'APPLICATION_ID': 'V411YYYOFW',
+    'API_KEY': 'fd56d3b8670c740f18f949b26393906f'
+}
