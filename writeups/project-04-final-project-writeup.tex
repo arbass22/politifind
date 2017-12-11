@@ -23,7 +23,7 @@
 
 \n\textbf{Github}: \url{https://github.com/arbass22/politifind} \\
 
-\n\textbf{User Interface}: Must make sure to pip install algoliasearch_django\\
+\n\textbf{User Interface}: Must make sure to pip install algoliasearch\_django\\
 
 \n\textbf{Data Model}: The following diagram is our updated data model for Politifind with the following descriptions: \\ 
 
@@ -44,7 +44,28 @@
 
 \includegraphics[scale=0.5]{politifind-data-model-UPDATED.png} \\
 
-\n\textbf{URL Routes/Mappings}: \\
+\n\textbf{URL Routes/Mappings}: 
+\begin{center}
+\begin{tabular}{ l | l | l }
+route & name & description \\
+\hline
+r`\^{}\$' & index & route users to the home page \\
+r`\^{}bill/(.*)/\$' & bill & individual bill page\\
+r`\^{}politician/(.*)/(bills$\mid$votes)*' & politician & individual politician page\\
+r`\^{}politicians/\$' & politicians & list of all politicians\\
+r`\^{}bills/\$' & bills & list of all bills\\
+r`\^{}committee/(.*)/(bills$\mid$subcomittees)*\$' & committee & individual committee page\\
+r`\^{}committees/\$' & committees & list of all committees\\
+r`\^{}profile/\$' & profile & user's profile page\\
+r`\^{}search/\$' & search & display's search results\\
+r`\^{}accounts/' & accounts & adds login/logout/etc urls\\
+r`\^{}vote/(.*)/(yay$\mid$nay)*/' & vote & view individual vote page\\
+r`\^{}subscribe/\$' & subscribe & user can subscribe\\
+r`\^{}unsubscribe/\$' & unsubscribe & user can unsubscribe\\
+r`\^{}profile/update/' & update profile & have a user update their profile page\\
+\end{tabular}
+\end{center}
+\\
 
 \n\textbf{Authentication/Authorization}: \\
 
