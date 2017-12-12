@@ -67,7 +67,6 @@ r`\^{}unsubscribe/\$' & unsubscribe & user can unsubscribe\\
 r`\^{}profile/update/' & update profile & have a user update their profile page\\
 \end{tabular}
 \end{center}
-\\
 
 \n\textbf{Authentication/Authorization}: We added a one-to-one mapping between Django's User model and our custom Profile model, allowing a user to specify additional information, such as political party, profile picture, etc.. Our users can browse Politifind without logging in, but when they do they have some additional functionality, such as subscribing to various politicians, bills, and committees, or voting on bills to see how they stack up against all politfind users and/or congress. We also enable to profile view to a logged in user where they can view all of their subscriptions and change their profile info. Lastly, the homepage is templated differently based on whether or not a user is logged in. We have one permissions group for a user that allows them to modify their info, or add votes and subscriptions, but it does not allow them to for example change the data of a bill, as it shouldn't. \\
 
