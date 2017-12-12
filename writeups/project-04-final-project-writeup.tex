@@ -2,6 +2,7 @@
 \usepackage[utf8]{inputenc}
 \usepackage[margin=1in]{geometry}
 \usepackage{graphicx}
+\graphicspath{{final-images/}}
 \usepackage{hyperref}
 \hypersetup{
     colorlinks=true,
@@ -25,7 +26,30 @@ Politifind aims to make data about all the happening in Congress accessible and 
 
 \n\textbf{Github}: \url{https://github.com/arbass22/politifind} \\
 
-\n\textbf{User Interface}: \\
+\n\textbf{User Interface}: \\\\
+\textbf{Home page:} This page shows the recent events on bills as well as votes.  If the user is logged in then it can show more customized
+information such as updates on bills the user is subscribed to.  The search bar at the top allows searching of bills, committees, and politicians at the same time. \\
+
+\includegraphics[width=6in]{homepage}\\\\
+\textbf{Politician Page:} This page shows details on a selected politician, such as recent votes, sponsored bills, and social media accounts.   There are multiple tabs that can be used to browse for more information.   Everything like bills and committees is linked to the right pages for easy browsing. In addition, users can subscribe to the politician.\\
+
+\includegraphics[width=6in]{politician}\\\\
+\textbf{Bill Page:} This page details on each bill.  It allows users to see the summary, sponsors, actions, and similar bills.  It also shows congressional vote data and allows Politifind users to vote on a bill, adding an optional comment to their representatives in congress. Users can also subscribe to the bill by clicking the bell icon. \\
+
+\includegraphics[width=6in]{bill}\\\\
+\textbf{Committee Page:} This page shows members of a committee, bills under consideration, and subcommittees.  Users can subscribe to committees as well. \\
+
+\includegraphics[width=6in]{committee}\\\\
+\textbf{Profile Page:} This page allows users to update basic details of their profile, such as email, picture, party.  It also shows the user their subscriptions. \\
+
+\includegraphics[width=6in]{profile}\\\\
+\textbf{Search Page:} If the typeahead in the search bar does not yield the result the user is looking for, they can hit enter and be taken to this search page.  It will show all of the results (bills, politicians, and committees), rather than just the top ones. \\
+
+\includegraphics[width=6in]{search}\\
+
+
+
+
 
 \n\textbf{Data Model}: The following diagram is our updated data model for Politifind with the following descriptions: \\ 
 
