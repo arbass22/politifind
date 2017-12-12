@@ -127,6 +127,6 @@ LOGIN_REDIRECT_URL = '/'
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 ALGOLIA = {
-    'APPLICATION_ID': 'V411YYYOFW',
-    'API_KEY': 'fd56d3b8670c740f18f949b26393906f'
+    'APPLICATION_ID': 'S22CE1U5IM',
+    'API_KEY': 'e31a150fe8bf53747326b75ed254d770'
 }

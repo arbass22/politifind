@@ -31,8 +31,6 @@ def search(request):
             'bill': bill,
         })
 
-    print(len(results))
-
     return render(
         request,
         'search.html',
